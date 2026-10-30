@@ -66,6 +66,7 @@ export default function App() {
               <AboutSection
                 onOpenCourses={() => handleSelectTab('courses')}
                 onOpenBatches={() => handleSelectTab('batches')}
+                onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
               />
             </>
           )}
