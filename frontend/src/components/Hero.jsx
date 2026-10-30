@@ -5,13 +5,9 @@ import {
   BookOpen, 
   Award, 
   Users, 
-  CheckCircle2, 
   ArrowRight, 
   Layers, 
-  Cpu, 
-  FileText,
-  Clock,
-  Sparkles
+  Cpu 
 } from 'lucide-react';
 import './Hero.css';
 
@@ -190,15 +186,6 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
             );
           })}
         </div>
-      </div>
-
-      {/* Decorative Bottom Sawtooth Border from Reference Image (Person removed per prompt) */}
-      <div className="bottom-sawtooth-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 36" preserveAspectRatio="none" className="sawtooth-svg">
-          <polygon points="
-            0,36 0,20 20,0 40,20 60,0 80,20 100,0 120,20 140,0 160,20 180,0 200,20 220,0 240,20 260,0 280,20 300,0 320,20 340,0 360,20 380,0 400,20 420,0 440,20 460,0 480,20 500,0 520,20 540,0 560,20 580,0 600,20 620,0 640,20 660,0 680,20 700,0 720,20 740,0 760,20 780,0 800,20 820,0 840,20 860,0 880,20 900,0 920,20 940,0 960,20 980,0 1000,20 1020,0 1040,20 1060,0 1080,20 1100,0 1120,20 1140,0 1160,20 1180,0 1200,20 1200,36
-          " fill="#ffffff" />
-        </svg>
       </div>
     </section>
   );

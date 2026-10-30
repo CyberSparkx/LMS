@@ -8,9 +8,9 @@
   --font-pixel: 'Silkscreen', monospace;
   --font-tech: 'Space Grotesk', sans-serif;
 
-  /* Color Palette - Minimalist warm off-white from reference */
-  --bg-page: #e8eaed;
-  --bg-canvas: #f6f7f8;
+  /* Color Palette - Minimalist clean off-white from reference */
+  --bg-page: #f7f8f9;
+  --bg-canvas: #f7f8f9;
   --bg-surface: #ffffff;
   --bg-pill: rgba(255, 255, 255, 0.95);
 
@@ -23,15 +23,12 @@
   --accent-dark: #111422;
   --accent-dark-hover: #22273d;
 
-  --border-frame: #111422;
-  --border-subtle: rgba(17, 20, 34, 0.08);
+  --border-subtle: rgba(17, 20, 34, 0.06);
 
-  --shadow-frame: 0 30px 80px -15px rgba(17, 20, 34, 0.18), 0 10px 25px -5px rgba(17, 20, 34, 0.08);
   --shadow-card: 0 16px 36px -10px rgba(17, 20, 34, 0.12), 0 2px 8px rgba(17, 20, 34, 0.04);
   --shadow-fanned: 0 20px 45px -10px rgba(17, 20, 34, 0.22);
 
   --radius-pill: 9999px;
-  --radius-frame: 36px;
   --radius-card: 22px;
 }
 
@@ -50,31 +47,30 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
-/* Outer browser wrapper to replicate the framed screen effect */
+/* Full-width clean wrapper without enclosing frame borders */
 .app-viewport-wrapper {
   min-height: 100vh;
-  padding: 24px;
+  width: 100%;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  background-color: var(--bg-page);
 }
 
-/* Framed Canvas (Exact look of the reference mockup frame) */
+/* Main content container - seamless & borderless */
 .stage-framed-container {
   position: relative;
   width: 100%;
-  max-width: 1360px;
+  min-height: 100vh;
   background-color: var(--bg-canvas);
-  border: 3px solid var(--border-frame);
-  border-radius: var(--radius-frame);
-  box-shadow: var(--shadow-frame);
-  overflow: hidden;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 48px);
 }
 
 /* Base button styles */
@@ -104,15 +100,4 @@ a {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #aab4c5;
-}
-
-@media (max-width: 768px) {
-  .app-viewport-wrapper {
-    padding: 8px;
-  }
-  .stage-framed-container {
-    border-radius: 20px;
-    border-width: 2px;
-    min-height: calc(100vh - 16px);
-  }
 }

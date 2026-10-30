@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Hero Styling - Exact Match to New Reference Design (Fanned Out Cards)
+   Hero Styling - Exact Match to Reference Design (Fanned Out Cards, No Borders)
    ========================================================================== */
 
 .fanned-hero-section {
   position: relative;
   width: 100%;
-  padding: 40px 20px 0 20px;
+  padding: 48px 20px 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,8 +16,8 @@
 
 /* Typography Container */
 .hero-typography-container {
-  max-width: 840px;
-  margin: 0 auto 36px auto;
+  max-width: 860px;
+  margin: 0 auto 38px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@
 
 .title-top-line {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5.2vw, 3.9rem);
+  font-size: clamp(2.3rem, 5.4vw, 4.2rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -43,15 +43,15 @@
 
 .title-pixel-line {
   font-family: var(--font-pixel);
-  font-size: clamp(1.9rem, 4.5vw, 3.5rem);
+  font-size: clamp(2rem, 4.6vw, 3.6rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #111422;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .hero-fanned-subtitle {
-  font-size: clamp(0.95rem, 1.4vw, 1.12rem);
+  font-size: clamp(0.96rem, 1.4vw, 1.15rem);
   color: #555e75;
   max-width: 580px;
   line-height: 1.55;
@@ -87,13 +87,13 @@
 }
 
 /* ==========================================================================
-   Fanned-out Cards Deck (Exact Match to Reference Mockup)
+   Fanned-out Cards Deck (Borderless, Smooth Curves & Soft Shadows)
    ========================================================================== */
 
 .fanned-deck-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1140px;
+  max-width: 1160px;
   margin: 10px auto 40px auto;
   padding: 20px 0 30px 0;
   display: flex;
@@ -113,16 +113,18 @@
 
 .deck-card {
   position: relative;
-  width: 190px;
-  height: 290px;
+  width: 195px;
+  height: 295px;
   margin-left: -58px;
-  border-radius: 24px;
-  padding: 10px;
+  border-radius: 26px;
+  padding: 12px;
   cursor: pointer;
   transform-origin: bottom center;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   user-select: none;
-  box-shadow: 0 16px 36px -8px rgba(17, 20, 34, 0.22);
+  box-shadow: 
+    0 20px 45px -10px rgba(17, 20, 34, 0.22),
+    0 4px 14px rgba(17, 20, 34, 0.06);
 }
 
 .deck-card:first-child {
@@ -130,61 +132,59 @@
 }
 
 .deck-card.is-hovered {
-  box-shadow: 0 28px 55px -12px rgba(17, 20, 34, 0.35);
+  box-shadow: 
+    0 30px 60px -12px rgba(17, 20, 34, 0.36),
+    0 8px 24px rgba(17, 20, 34, 0.1);
 }
 
-/* Screen Mockup Frame inside each card */
+/* Screen Mockup Frame inside each card - No harsh borders */
 .card-mock-screen {
   width: 100%;
   height: 100%;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 16px 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 /* Card Themes matching vibrant aesthetic in reference */
 .deck-card.dark-teal {
-  background: linear-gradient(145deg, #134e4a, #042f2e);
+  background: linear-gradient(150deg, #134e4a, #042f2e);
   color: #ffffff;
 }
 
 .deck-card.navy {
-  background: linear-gradient(145deg, #1e293b, #0f172a);
+  background: linear-gradient(150deg, #1e293b, #0f172a);
   color: #ffffff;
 }
 
 .deck-card.ocean {
-  background: linear-gradient(145deg, #0369a1, #0c4a6e);
+  background: linear-gradient(150deg, #0284c7, #075985);
   color: #ffffff;
 }
 
 .deck-card.featured-slate {
-  background: linear-gradient(145deg, #ffffff, #f1f4f9);
+  background: #ffffff;
   color: #111422;
-  border: 2px solid #111422;
-}
-
-.deck-card.featured-slate .card-mock-screen {
-  border-color: rgba(17, 20, 34, 0.08);
+  box-shadow: 
+    0 20px 45px -10px rgba(17, 20, 34, 0.16),
+    0 4px 16px rgba(17, 20, 34, 0.06);
 }
 
 .deck-card.emerald {
-  background: linear-gradient(145deg, #065f46, #022c22);
+  background: linear-gradient(150deg, #059669, #064e3b);
   color: #ffffff;
 }
 
 .deck-card.indigo {
-  background: linear-gradient(145deg, #4338ca, #312e81);
+  background: linear-gradient(150deg, #4f46e5, #312e81);
   color: #ffffff;
 }
 
 .deck-card.crimson-coral {
-  background: linear-gradient(145deg, #e11d48, #9f1239);
+  background: linear-gradient(150deg, #f43f5e, #be123c);
   color: #ffffff;
 }
 
@@ -200,21 +200,21 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
 .mock-badge {
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  padding: 2px 7px;
+  padding: 2px 8px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(4px);
 }
 
 .deck-card.featured-slate .mock-badge {
-  background: #111422;
-  color: #ffffff;
+  background: #f1f4f9;
+  color: #111422;
 }
 
 /* Mock Card Body */
@@ -226,10 +226,10 @@
 }
 
 .mock-icon-wrap {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -237,21 +237,21 @@
 }
 
 .deck-card.featured-slate .mock-icon-wrap {
-  background: rgba(17, 20, 34, 0.08);
+  background: #f1f4f9;
   color: #111422;
 }
 
 .mock-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .mock-details {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   line-height: 1.35;
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
 /* Mock Card Footer */
@@ -261,23 +261,18 @@
   justify-content: space-between;
   margin-top: auto;
   padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.deck-card.featured-slate .mock-footer {
-  border-top-color: rgba(17, 20, 34, 0.1);
 }
 
 .mock-stat-badge {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
 }
 
 .mock-arrow-action {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,36 +289,22 @@
 }
 
 /* ==========================================================================
-   Sawtooth Bottom Divider (from Reference Image, no person)
-   ========================================================================== */
-
-.bottom-sawtooth-divider {
-  position: relative;
-  width: 100%;
-  margin-top: auto;
-  line-height: 0;
-  overflow: hidden;
-}
-
-.sawtooth-svg {
-  width: 100%;
-  height: 28px;
-  display: block;
-}
-
-/* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
 
 @media (max-width: 1024px) {
   .deck-card {
-    width: 165px;
-    height: 260px;
+    width: 170px;
+    height: 265px;
     margin-left: -48px;
   }
 }
 
 @media (max-width: 768px) {
+  .fanned-hero-section {
+    padding: 30px 16px;
+  }
+
   .fanned-deck-wrapper {
     overflow-x: auto;
     justify-content: flex-start;
