@@ -15,6 +15,7 @@ export default function Navbar({
   const navItems = [
     { id: 'courses', label: 'Courses' },
     { id: 'batches', label: 'Batches' },
+    { id: 'gallery', label: 'Gallery' },
     { id: 'download-app', label: 'Download App' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },

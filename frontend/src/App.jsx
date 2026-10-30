@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
+import ImageGallerySection from './components/ImageGallerySection';
 import CoursesView from './components/CoursesView';
 import BatchesView from './components/BatchesView';
 import AboutContactView from './components/AboutContactView';
@@ -30,6 +31,14 @@ export default function App() {
       setActiveTab('home');
       setTimeout(() => {
         const el = document.getElementById('about');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 60);
+    } else if (tabId === 'gallery') {
+      setActiveTab('home');
+      setTimeout(() => {
+        const el = document.getElementById('gallery');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
@@ -68,6 +77,7 @@ export default function App() {
                 onOpenBatches={() => handleSelectTab('batches')}
                 onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
               />
+              <ImageGallerySection />
             </>
           )}
 
