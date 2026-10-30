@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Bolt-Inspired Bento Grid About Section
+   Bolt-Inspired Bento Image Gallery About Section
    ========================================================================== */
 
 .bolt-about-section {
@@ -13,15 +13,12 @@
 
 .bolt-about-wrapper {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1160px;
   display: flex;
   flex-direction: column;
 }
 
-/* ==========================================================================
-   Header - "It's not magic. It's Suraj CS Hub."
-   ========================================================================== */
-
+/* Header */
 .bolt-header-group {
   text-align: center;
   max-width: 780px;
@@ -42,12 +39,12 @@
   font-size: clamp(1rem, 1.4vw, 1.15rem);
   color: #555e75;
   line-height: 1.55;
-  max-width: 640px;
+  max-width: 660px;
   margin: 0 auto;
 }
 
 /* ==========================================================================
-   Bento Grid Layout (Matching exact 3-row layout in reference)
+   Bento Grid Layout (3 Rows matching reference)
    ========================================================================== */
 
 .bolt-bento-grid {
@@ -57,36 +54,36 @@
   width: 100%;
 }
 
-/* Base Card Styling */
+/* Base Bento Card */
 .bento-card {
   position: relative;
   background: #ffffff;
   border-radius: 28px;
-  padding: 34px 32px;
+  padding: 34px 30px;
   box-shadow: 0 4px 20px rgba(17, 20, 34, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
   overflow: hidden;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
 .bento-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px -10px rgba(17, 20, 34, 0.09);
+  box-shadow: 0 18px 40px -10px rgba(17, 20, 34, 0.1);
 }
 
 .card-top-category {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #4b5368;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .card-bold-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.45rem, 2.1vw, 1.9rem);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
   font-weight: 850;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -98,7 +95,7 @@
   font-size: 0.88rem;
   color: #5b647c;
   line-height: 1.5;
-  max-width: 320px;
+  max-width: 310px;
   margin-bottom: 14px;
 }
 
@@ -113,7 +110,7 @@
   padding: 0;
   margin-top: 6px;
   cursor: pointer;
-  transition: gap 0.2s ease;
+  transition: gap 0.2s ease, color 0.2s;
 }
 
 .card-arrow-link:hover {
@@ -122,15 +119,69 @@
 }
 
 /* ==========================================================================
-   Row 1 Layout: Wide (7 cols) + Narrow (5 cols)
+   Gallery Photo Styling
    ========================================================================== */
 
+.card-gallery-photo-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px -6px rgba(17, 20, 34, 0.15);
+  background: #f1f4f9;
+}
+
+.photo-wide {
+  width: 100%;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.photo-top {
+  width: 100%;
+  height: 185px;
+  margin: 6px 0 20px 0;
+  flex-shrink: 0;
+}
+
+.bento-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover .bento-gallery-img {
+  transform: scale(1.05);
+}
+
+.photo-caption-pill {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(17, 20, 34, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Row Spans
+   ========================================================================== */
+
+/* Row 1 */
 .card-finish-line {
   grid-column: span 7;
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 270px;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .card-finish-line .card-top-category {
@@ -144,34 +195,19 @@
   flex-direction: column;
 }
 
-.card-boring-theory .graphic-app-float {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0 20px 0;
-}
-
-/* ==========================================================================
-   Row 2 Layout: Narrow (5 cols) + Wide (7 cols)
-   ========================================================================== */
-
+/* Row 2 */
 .card-career-impact {
   grid-column: span 5;
   display: flex;
   flex-direction: column;
 }
 
-.card-career-impact .graphic-diploma {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0 16px 0;
-}
-
 .card-real-projects {
   grid-column: span 7;
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 270px;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .card-real-projects .card-top-category {
@@ -179,16 +215,13 @@
   margin-bottom: 0;
 }
 
-/* ==========================================================================
-   Row 3 Layout: Wide (8 cols) + CTA Card (4 cols)
-   ========================================================================== */
-
+/* Row 3 */
 .card-fee-transparency {
   grid-column: span 8;
   display: grid;
-  grid-template-columns: 1fr 230px;
+  grid-template-columns: 1fr 280px;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .card-fee-transparency .card-top-category {
@@ -196,7 +229,7 @@
   margin-bottom: 0;
 }
 
-/* Action CTA Card (Now see Suraj CS Hub in action) */
+/* Action CTA Card */
 .card-action-cta {
   grid-column: span 4;
   background: #ffffff;
@@ -225,14 +258,14 @@
 .cta-lightning-bolt {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 .bolt-shape-svg {
   width: 75px;
   height: 95px;
-  filter: drop-shadow(0 4px 14px rgba(223, 255, 0, 0.4));
-  transition: transform 0.2s ease;
+  filter: drop-shadow(0 4px 14px rgba(223, 255, 0, 0.45));
+  transition: transform 0.25s ease;
 }
 
 .card-action-cta:hover .bolt-shape-svg {
@@ -267,20 +300,6 @@
   transform: scale(1.08);
 }
 
-/* Vector Art Graphics Styling */
-.card-graphic-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.custom-vector-art {
-  width: 100%;
-  max-width: 210px;
-  height: auto;
-}
-
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
@@ -307,9 +326,13 @@
     max-width: 100%;
   }
 
-  .custom-vector-art {
-    max-width: 160px;
-    margin: 10px auto;
+  .photo-wide {
+    width: 100%;
+    height: 200px;
+  }
+
+  .photo-top {
+    height: 190px;
   }
 }
 
@@ -319,7 +342,7 @@
   }
 
   .bento-card {
-    padding: 26px 20px;
+    padding: 24px 20px;
     border-radius: 22px;
   }
 }
