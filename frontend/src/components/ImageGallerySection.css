@@ -1,18 +1,21 @@
 /* ==========================================================================
    Spencer Gabor-Inspired Image Gallery Section
+   Design: Exact recreation of Spencer Gabor reference mockup
+   Typography: Same font as About Section (Plus Jakarta Sans, 900 weight)
+   Background: Same color as other sections (#f7f6f3)
    ========================================================================== */
 
 .spencer-gallery-section {
   position: relative;
   width: 100%;
-  padding: 85px 24px 90px 24px;
-  background: #ffffff;
+  padding: 85px 24px 95px 24px;
+  background: #f7f6f3; /* Exactly matching About section and canvas */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   overflow: hidden;
-  border-top: 1px solid rgba(17, 20, 34, 0.06);
+  border-top: 1px solid rgba(17, 20, 34, 0.05);
 }
 
 .spencer-gallery-container {
@@ -25,25 +28,27 @@
 }
 
 /* ==========================================================================
-   Top Meta
+   Top Meta - Exact match to "BROOKLYN, NEW YORK" in reference
    ========================================================================== */
 
 .spencer-top-meta {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .meta-location {
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #111422;
 }
 
 .meta-contact {
+  font-family: var(--font-sans);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -52,38 +57,34 @@
 }
 
 /* ==========================================================================
-   Main Headline (SURAJ CS HUB)
-   ========================================================================== */
-
-/* ==========================================================================
-   Main Headline (SURAJ CS HUB - matching SPENCER GABOR style)
+   Main Headline (SURAJ CS HUB - Same font as About section)
    ========================================================================== */
 
 .spencer-main-title {
-  font-family: 'Anton', 'Bebas Neue', var(--font-display), sans-serif;
-  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  font-family: var(--font-sans);
+  font-size: clamp(3.2rem, 7.5vw, 5.8rem);
   font-weight: 900;
-  line-height: 0.96;
-  letter-spacing: 0.02em;
+  line-height: 1;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   color: #111422;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   user-select: none;
 }
 
 /* ==========================================================================
-   Fanned Photo Deck
+   Fanned Photo Deck - 4 Cards with Overlapping Rotation
    ========================================================================== */
 
 .spencer-fanned-cards-wrap {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  height: 310px;
+  max-width: 860px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 12px 0 34px 0;
+  margin: 10px 0 28px 0;
   z-index: 5;
 }
 
@@ -98,13 +99,13 @@
 
 .spencer-photo-card {
   position: absolute;
-  width: 240px;
-  height: 240px;
-  border-radius: 28px;
-  padding: 6px;
+  width: 230px;
+  height: 230px;
+  border-radius: 26px;
+  padding: 5px;
   cursor: pointer;
   transform-origin: center bottom;
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.38s ease, z-index 0s;
+  transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.36s ease;
   box-shadow: 
     0 18px 40px -10px rgba(17, 20, 34, 0.28),
     0 6px 16px rgba(17, 20, 34, 0.08);
@@ -112,25 +113,25 @@
   background: #ffffff;
 }
 
-/* Distinct Colorful Themes (Inspired by Spencer Gabor Artwork Cards) */
+/* Vibrant Colorful Card Themes (Matching Spencer Gabor cards) */
 .spencer-photo-card.theme-lime {
-  background: #a3e635; /* Lime green like card 1 */
-  box-shadow: 0 18px 42px -10px rgba(132, 204, 22, 0.35);
+  background: #a3e635; /* Card 1: Lime green theme */
+  box-shadow: 0 18px 40px -10px rgba(132, 204, 22, 0.36);
 }
 
 .spencer-photo-card.theme-cyan {
-  background: #38bdf8; /* Sky blue like card 2 */
-  box-shadow: 0 18px 42px -10px rgba(56, 189, 248, 0.35);
+  background: #38bdf8; /* Card 2: Sky blue theme */
+  box-shadow: 0 18px 40px -10px rgba(56, 189, 248, 0.36);
 }
 
 .spencer-photo-card.theme-emerald {
-  background: #34d399; /* Emerald/lime yellow like card 3 */
-  box-shadow: 0 18px 42px -10px rgba(52, 211, 153, 0.35);
+  background: #34d399; /* Card 3: Emerald theme */
+  box-shadow: 0 18px 40px -10px rgba(52, 211, 153, 0.36);
 }
 
 .spencer-photo-card.theme-peach {
-  background: #fed7aa; /* Pastel peach/cream like card 4 */
-  box-shadow: 0 18px 42px -10px rgba(251, 146, 60, 0.3);
+  background: #fed7aa; /* Card 4: Soft pastel peach theme */
+  box-shadow: 0 18px 40px -10px rgba(251, 146, 60, 0.32);
 }
 
 .spencer-photo-card.is-hovered {
@@ -143,27 +144,9 @@
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 22px;
+  border-radius: 21px;
   overflow: hidden;
   background: #0f172a;
-}
-
-.card-top-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(17, 20, 34, 0.75);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: #ffffff;
-  font-size: 0.65rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  z-index: 5;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .spencer-img {
@@ -178,18 +161,18 @@
   transform: scale(1.08);
 }
 
-/* Hover Overlay */
+/* Hover Overlay with photo details */
 .card-hover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(17, 20, 34, 0.05) 0%, rgba(17, 20, 34, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(17, 20, 34, 0.04) 0%, rgba(17, 20, 34, 0.88) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 18px;
+  padding: 16px;
   text-align: left;
   opacity: 0;
-  transition: opacity 0.24s ease;
+  transition: opacity 0.22s ease;
 }
 
 .spencer-photo-card:hover .card-hover-overlay {
@@ -197,6 +180,7 @@
 }
 
 .overlay-tag {
+  font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -206,28 +190,30 @@
 }
 
 .overlay-title {
-  font-size: 0.96rem;
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
 }
 
 .overlay-click-hint {
-  font-size: 0.68rem;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
   color: #cbd5e1;
   margin-top: 4px;
 }
 
-/* Soft Diffused Shadow beneath the photo deck */
+/* Soft Diffused Shadow beneath the photo deck (from reference) */
 .fanned-shadow-layer {
   position: absolute;
-  bottom: 6px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 580px;
+  width: 520px;
   height: 44px;
-  background: rgba(17, 20, 34, 0.2);
-  filter: blur(32px);
+  background: rgba(17, 20, 34, 0.22);
+  filter: blur(30px);
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
@@ -235,32 +221,33 @@
 
 /* ==========================================================================
    Watermark Big Typography (ILLUSTRATOR, DESIGNER & MURALIST equivalent)
+   Using the same font as About section: Plus Jakarta Sans, 900 weight
    ========================================================================== */
 
 .spencer-watermark-typography {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Anton', 'Bebas Neue', var(--font-display), sans-serif;
-  font-size: clamp(3.2rem, 7.8vw, 6.8rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2.8rem, 6.8vw, 5.8rem);
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: 0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #e2e7f0;
+  color: #d8dde7; /* Subtle tone-on-tone contrast on #f7f6f3 */
   user-select: none;
-  margin-top: -36px;
-  margin-bottom: 30px;
+  margin-top: -34px;
+  margin-bottom: 28px;
   z-index: 2;
   transition: color 0.3s ease;
 }
 
 .spencer-watermark-typography:hover {
-  color: #d3dae6;
+  color: #ccd2de;
 }
 
 /* ==========================================================================
-   Bottom Meta / Curriculum (CLIENTS INCLUDE equivalent)
+   Bottom Meta / Curriculum (CLIENTS INCLUDE equivalent in reference)
    ========================================================================== */
 
 .spencer-bottom-clients {
@@ -269,19 +256,21 @@
   align-items: center;
   gap: 6px;
   max-width: 680px;
-  margin-top: 10px;
+  margin-top: 8px;
   z-index: 5;
 }
 
 .bottom-tagline {
-  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #111422;
 }
 
 .bottom-courses-list {
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -390,6 +379,7 @@
 }
 
 .caption-tag {
+  font-family: var(--font-sans);
   font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -400,14 +390,16 @@
 }
 
 .caption-title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.3rem;
   font-weight: 800;
+  letter-spacing: -0.02em;
   color: #111422;
   margin-bottom: 6px;
 }
 
 .caption-desc {
+  font-family: var(--font-sans);
   font-size: 0.88rem;
   color: #5d677f;
   line-height: 1.5;
@@ -423,8 +415,8 @@
   }
 
   .spencer-photo-card {
-    width: 160px;
-    height: 160px;
+    width: 165px;
+    height: 165px;
   }
 
   .spencer-fanned-cards-wrap {

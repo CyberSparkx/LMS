@@ -95,7 +95,7 @@ export default function ImageGallerySection() {
                   className={`spencer-photo-card card-${idx + 1} ${item.cardTheme} ${isHovered ? 'is-hovered' : ''}`}
                   style={{
                     transform: `rotate(${rotation}deg) translate(${item.xOffset}px, ${y}px) scale(${scale})`,
-                    zIndex: isHovered ? 40 : idx + 10
+                    zIndex: isHovered ? 50 : idx + 10
                   }}
                   onMouseEnter={() => setHoveredIndex(idx)}
                   onMouseLeave={() => setHoveredIndex(null)}
@@ -105,7 +105,6 @@ export default function ImageGallerySection() {
                   aria-label={`View photo: ${item.title}`}
                 >
                   <div className="photo-card-inner">
-                    <span className="card-top-badge">{item.badge}</span>
                     <img 
                       src={item.src} 
                       alt={item.title} 
@@ -115,7 +114,7 @@ export default function ImageGallerySection() {
                     <div className="card-hover-overlay">
                       <span className="overlay-tag">{item.tag}</span>
                       <strong className="overlay-title">{item.title}</strong>
-                      <span className="overlay-click-hint">Click to view full photo</span>
+                      <span className="overlay-click-hint">Click to enlarge</span>
                     </div>
                   </div>
                 </div>
@@ -129,8 +128,8 @@ export default function ImageGallerySection() {
 
         {/* Huge Light-Gray Background / Watermark Typography (Exact 2-line layout as in reference) */}
         <div className="spencer-watermark-typography" aria-hidden="true">
-          <span>PRACTICAL LAB, CODE</span>
-          <span>&amp; 1-ON-1 MENTORSHIP</span>
+          <span>COMPUTER LAB,</span>
+          <span>STUDENTS &amp; TEACHING</span>
         </div>
 
         {/* Bottom Sub-Meta & Curriculum Badges (Like CLIENTS INCLUDE in reference) */}
