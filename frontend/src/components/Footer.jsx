@@ -8,7 +8,7 @@ import {
   Download, 
   User, 
   ShieldCheck, 
-  ChevronRight, 
+  ArrowRight, 
   X,
   FileText,
   Calendar,
@@ -34,235 +34,107 @@ export default function Footer({
   };
 
   return (
-    <footer className="hub-footer" aria-label="Website Footer">
-      {/* Top Pre-Footer Banner / Callout */}
-      <div className="footer-cta-banner">
-        <div className="cta-banner-content">
-          <div className="cta-badge">
-            <Sparkles size={14} />
-            <span>Strict 4-Student Micro-Batches</span>
+    <footer className="hub-join-footer" id="join-us" aria-label="Website Footer">
+      <div className="join-footer-fullwidth-section">
+        
+        {/* Top Text - Exact Match to Reference Design */}
+        <div className="join-typography-wrap">
+          <h2 className="join-main-title">Join Us!</h2>
+          <p className="join-sub-title">Together we can make everything better.</p>
+
+          {/* Action CTAs */}
+          <div className="join-action-row">
+            <button 
+              type="button" 
+              className="join-primary-btn"
+              onClick={onOpenBookSeat}
+            >
+              <span>Reserve Workstation (4 Seats/Batch)</span>
+              <ArrowRight size={16} />
+            </button>
+            <button 
+              type="button" 
+              className="join-secondary-btn"
+              onClick={onOpenDownloadApp}
+            >
+              <Download size={16} />
+              <span>Get Android App</span>
+            </button>
           </div>
-          <h3 className="cta-banner-title">
-            Ready to master practical computer skills with 1-on-1 mentorship?
-          </h3>
-          <p className="cta-banner-desc">
-            Reserve your dedicated terminal today. Only 4 students per batch ensure personalized attention from day one.
-          </p>
-        </div>
-        <div className="cta-banner-actions">
-          <button 
-            type="button" 
-            className="footer-btn-primary"
-            onClick={onOpenBookSeat}
-          >
-            <span>Book Seat Online</span>
-            <ChevronRight size={16} />
-          </button>
-          <button 
-            type="button" 
-            className="footer-btn-secondary"
-            onClick={onOpenDownloadApp}
-          >
-            <Download size={16} />
-            <span>Get Android App</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Main Multi-Column Footer Grid */}
-      <div className="hub-footer-container">
-        <div className="footer-grid">
-          
-          {/* Column 1: Brand & Center Profile */}
-          <div className="footer-col brand-col">
-            <div className="footer-brand-header">
-              <div className="footer-mascot-box">
-                <Terminal size={22} strokeWidth={2.4} />
-              </div>
-              <div className="brand-text-block">
-                <span className="brand-title">SURAJ CS HUB</span>
-                <span className="brand-subtitle">Computer Training Center &amp; LMS</span>
-              </div>
-            </div>
-
-            <p className="brand-mission">
-              Empowering students with industry-relevant computer education, hands-on coding labs, and strict 4-seat micro-batches for uncompromised learning.
-            </p>
-
-            <div className="center-contact-list">
-              <div className="contact-item">
-                <MapPin size={17} className="contact-icon" />
-                <span>Station Road, Tech Zone, Suraj CS Hub Campus</span>
-              </div>
-              <div className="contact-item">
-                <Phone size={17} className="contact-icon" />
-                <a href="tel:+919876543210">+91 98765 43210 (Admissions Helpline)</a>
-              </div>
-              <div className="contact-item">
-                <Mail size={17} className="contact-icon" />
-                <a href="mailto:surajcshub@gmail.com">surajcshub@gmail.com</a>
-              </div>
-              <div className="contact-item">
-                <Clock size={17} className="contact-icon" />
-                <span>Mon – Sat: 7:00 AM – 8:30 PM &bull; Sunday Closed</span>
-              </div>
-            </div>
-
-            <div className="status-indicator-pill">
-              <span className="pulsing-green-dot"></span>
-              <span>Admissions Open &bull; 6 Daily Slots</span>
-            </div>
-          </div>
-
-          {/* Column 2: Flagship Courses */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">Courses &amp; Tracks</h4>
-            <ul className="footer-links-list">
-              <li>
-                <button type="button" onClick={() => handleLinkClick('courses')}>
-                  ADCA Diploma (12 Months)
-                  <span className="link-tag">Popular</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('courses')}>
-                  DCA Diploma (6 Months)
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('courses')}>
-                  Full-Stack Web Development (MERN)
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('courses')}>
-                  Python &amp; Machine Learning
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('courses')}>
-                  NIELIT CCC Exam Preparation
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('courses')}>
-                  Tally Prime &amp; GST Accounting
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Navigation & Timings */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">Lab &amp; Batches</h4>
-            <ul className="footer-links-list">
-              <li>
-                <button type="button" onClick={() => handleLinkClick('batches')}>
-                  Batch Schedules (6 Daily Slots)
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('batches')}>
-                  Morning 1: 7:00 AM – 8:30 AM
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('batches')}>
-                  Morning 2: 8:30 AM – 10:00 AM
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('batches')}>
-                  Evening 2: 5:30 PM – 7:00 PM
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('batches')}>
-                  Evening 3: 7:00 PM – 8:30 PM
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => handleLinkClick('gallery')}>
-                  Campus &amp; Lab Photo Gallery
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Student LMS & Android App */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">Student Portal &amp; App</h4>
-            <ul className="footer-links-list">
-              <li>
-                <button type="button" onClick={onOpenLogin} className="highlighted-link">
-                  <User size={15} />
-                  <span>Student LMS Login</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={onOpenDownloadApp} className="highlighted-link">
-                  <Download size={15} />
-                  <span>Download Android APK (v1.2.4)</span>
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={onOpenBookSeat}>
-                  Reserve Seat Online
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => setActivePolicyModal('refund')}>
-                  Refund &amp; Cancellation Policy
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => setActivePolicyModal('privacy')}>
-                  Privacy Policy
-                </button>
-              </li>
-              <li>
-                <button type="button" onClick={() => setActivePolicyModal('terms')}>
-                  Terms of Service
-                </button>
-              </li>
-            </ul>
-
-            <div className="app-direct-badge-box" onClick={onOpenDownloadApp}>
-              <div className="apk-icon-circle">
-                <Download size={18} />
-              </div>
-              <div className="apk-badge-text">
-                <strong>Android LMS App</strong>
-                <span>Direct APK Download &bull; 18.4 MB</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        {/* Bottom Bar / Copyright */}
-        <div className="footer-bottom-bar">
-          <div className="bottom-left">
-            <p className="copyright-text">
-              &copy; {new Date().getFullYear()} <strong>Suraj CS Hub</strong>. All rights reserved. Govt. Recognized IT Training Institute.
-            </p>
+        {/* Artwork Centerpiece - Characters Illustration */}
+        <div className="join-illustration-container">
+          <img 
+            src="/assets/footer-characters-transparent.png" 
+            alt="Students community at Suraj CS Hub" 
+            className="join-characters-image"
+          />
+        </div>
+
+        {/* Full-bleed Grounding Baseline spanning 100% edge-to-edge */}
+        <div className="join-ground-line" aria-hidden="true"></div>
+
+        {/* Clean Grounded Minimalist Footer Navigation */}
+        <div className="join-bottom-nav">
+          <div className="bottom-nav-top-row">
+            {/* Brand Logo & Name */}
+            <div className="bottom-brand-badge" onClick={() => onSelectTab('home')}>
+              <div className="brand-mascot-circle">
+                <Terminal size={18} strokeWidth={2.4} />
+              </div>
+              <div className="brand-names">
+                <span className="brand-hub-name">SURAJ CS HUB</span>
+                <span className="brand-hub-tag">Computer Training Center &amp; LMS</span>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <nav className="bottom-links-strip" aria-label="Footer Navigation Links">
+              <button type="button" onClick={() => handleLinkClick('courses')}>Courses</button>
+              <button type="button" onClick={() => handleLinkClick('batches')}>Batches</button>
+              <button type="button" onClick={() => handleLinkClick('gallery')}>Gallery</button>
+              <button type="button" onClick={() => handleLinkClick('about')}>About</button>
+              <button type="button" onClick={onOpenLogin} className="accent-link">
+                <User size={14} />
+                <span>Student LMS</span>
+              </button>
+              <button type="button" onClick={onOpenDownloadApp} className="accent-link">
+                <Download size={14} />
+                <span>Android APK</span>
+              </button>
+            </nav>
+
+            {/* Direct Helpline */}
+            <div className="bottom-helpline-box">
+              <Phone size={14} className="helpline-icon" />
+              <a href="tel:+919876543210">+91 98765 43210</a>
+              <span className="bullet-sep">&bull;</span>
+              <a href="mailto:surajcshub@gmail.com">surajcshub@gmail.com</a>
+            </div>
           </div>
 
-          <div className="bottom-center">
-            <span className="fee-reminder-pill">
-              <Calendar size={13} />
-              Monthly fees due on the 5th of each month
+          {/* Legal / Copyright Bottom Bar */}
+          <div className="bottom-nav-legal-row">
+            <span className="legal-copyright">
+              &copy; {new Date().getFullYear()} <strong>Suraj CS Hub</strong>. All rights reserved. Strict 4-Student Micro-Batches.
             </span>
-          </div>
 
-          <div className="bottom-right-policies">
-            <button type="button" onClick={() => setActivePolicyModal('privacy')}>Privacy</button>
-            <span>&bull;</span>
-            <button type="button" onClick={() => setActivePolicyModal('terms')}>Terms</button>
-            <span>&bull;</span>
-            <button type="button" onClick={() => setActivePolicyModal('refund')}>Refund Policy</button>
+            <div className="legal-reminder-tag">
+              <Calendar size={13} />
+              <span>Monthly fee due on the 5th of each month</span>
+            </div>
+
+            <div className="legal-policy-links">
+              <button type="button" onClick={() => setActivePolicyModal('privacy')}>Privacy Policy</button>
+              <span>&bull;</span>
+              <button type="button" onClick={() => setActivePolicyModal('terms')}>Terms of Service</button>
+              <span>&bull;</span>
+              <button type="button" onClick={() => setActivePolicyModal('refund')}>Refund Policy</button>
+            </div>
           </div>
         </div>
+
       </div>
 
       {/* Policy Modals */}

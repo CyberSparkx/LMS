@@ -1,9 +1,12 @@
 /* ==========================================================================
-   Suraj CS Hub - Comprehensive Website Footer Styles
+   Suraj CS Hub - Join Us! Footer Section (100% Full-Width Edge-to-Edge)
+   Rule: NO left or right margin / space, full bleed across viewport
    ========================================================================== */
 
-.hub-footer {
+.hub-join-footer {
   width: 100%;
+  padding: 0;
+  margin: 0;
   background: #ffffff;
   border-top: 1px solid rgba(17, 20, 34, 0.08);
   display: flex;
@@ -11,387 +14,293 @@
   align-items: center;
   position: relative;
   z-index: 10;
-}
-
-/* ==========================================================================
-   Pre-Footer Banner (CTA Callout)
-   ========================================================================== */
-
-.footer-cta-banner {
-  width: 100%;
-  max-width: 1140px;
-  margin: -40px 20px 48px 20px;
-  background: linear-gradient(135deg, #111422 0%, #1e2538 100%);
-  border-radius: 28px;
-  padding: 40px 44px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  box-shadow: 0 20px 50px -10px rgba(17, 20, 34, 0.35);
-  color: #ffffff;
-  position: relative;
   overflow: hidden;
 }
 
-.footer-cta-banner::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0, 119, 255, 0.25) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.cta-banner-content {
-  max-width: 620px;
-  text-align: left;
-}
-
-.cta-badge {
-  display: inline-flex;
+.join-footer-fullwidth-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 72px 0 36px 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  background: rgba(0, 119, 255, 0.2);
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  color: #38bdf8;
-  font-size: 0.72rem;
-  font-weight: 800;
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
+  text-align: center;
+  position: relative;
 }
 
-.cta-banner-title {
+/* ==========================================================================
+   Top Typography - Exact Match to "Join Us!" Reference
+   ========================================================================== */
+
+.join-typography-wrap {
+  width: 100%;
+  max-width: 840px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.join-main-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  margin-bottom: 8px;
+  font-size: clamp(3.8rem, 8.5vw, 6.2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #111422;
+  margin-bottom: 14px;
+  user-select: none;
 }
 
-.cta-banner-desc {
-  font-size: 0.95rem;
-  color: #a3adc2;
-  line-height: 1.5;
+.join-sub-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.08rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  color: #2e3549;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  margin-bottom: 24px;
 }
 
-.cta-banner-actions {
+/* Action Row */
+.join-action-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
-  flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
-.footer-btn-primary {
+.join-primary-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #0077ff;
+  background: #111422;
   color: #ffffff;
-  font-size: 0.92rem;
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
   font-weight: 700;
-  padding: 13px 24px;
+  padding: 13px 26px;
   border-radius: var(--radius-pill);
-  box-shadow: 0 8px 20px rgba(0, 119, 255, 0.35);
-  transition: all 0.2s ease;
+  box-shadow: 0 8px 22px rgba(17, 20, 34, 0.2);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  cursor: pointer;
 }
 
-.footer-btn-primary:hover {
-  background: #0066dc;
+.join-primary-btn:hover {
+  background: #0077ff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(0, 119, 255, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 119, 255, 0.32);
 }
 
-.footer-btn-secondary {
+.join-secondary-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-  font-size: 0.92rem;
+  background: #f1f4f9;
+  color: #2b3144;
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
   font-weight: 700;
   padding: 13px 22px;
   border-radius: var(--radius-pill);
-  transition: all 0.2s ease;
+  border: 1px solid rgba(17, 20, 34, 0.08);
+  transition: all 0.22s ease;
   white-space: nowrap;
+  cursor: pointer;
 }
 
-.footer-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
+.join-secondary-btn:hover {
+  background: #e2e8f0;
+  color: #111422;
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   Footer Main Container & Grid
+   Centerpiece Characters Illustration (Full-Width Bleed)
    ========================================================================== */
 
-.hub-footer-container {
+.join-illustration-container {
   width: 100%;
-  max-width: 1160px;
-  padding: 10px 24px 34px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  position: relative;
+  padding: 0;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2.2fr 1.4fr 1.4fr 1.6fr;
-  gap: 40px;
-  text-align: left;
-  margin-bottom: 48px;
+.join-characters-image {
+  width: 100%;
+  max-width: 1040px;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 28px rgba(17, 20, 34, 0.06));
+  transition: transform 0.4s ease;
 }
 
-/* Brand Column */
-.footer-col.brand-col {
+.join-illustration-container:hover .join-characters-image {
+  transform: scale(1.015);
+}
+
+/* 100% Full-Bleed Grounding Baseline spanning edge-to-edge with NO gaps */
+.join-ground-line {
+  width: 100%;
+  height: 2px;
+  background: #111422;
+  margin-top: -1px;
+}
+
+/* ==========================================================================
+   Clean Grounded Minimalist Footer Navigation
+   ========================================================================== */
+
+.join-bottom-nav {
+  width: 100%;
+  max-width: 1220px;
+  padding: 38px 24px 0 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+  box-sizing: border-box;
 }
 
-.footer-brand-header {
+.bottom-nav-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(17, 20, 34, 0.08);
+}
+
+/* Brand badge */
+.bottom-brand-badge {
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
 }
 
-.footer-mascot-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+.brand-mascot-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   background: #111422;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 16px rgba(17, 20, 34, 0.16);
+  transition: transform 0.2s ease;
 }
 
-.brand-text-block {
+.bottom-brand-badge:hover .brand-mascot-circle {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+.brand-names {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
-.brand-title {
+.brand-hub-name {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: 1.08rem;
   font-weight: 900;
-  letter-spacing: -0.02em;
   color: #111422;
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
-.brand-subtitle {
-  font-size: 0.74rem;
+.brand-hub-tag {
+  font-size: 0.72rem;
   font-weight: 600;
   color: #64748b;
-  letter-spacing: 0.02em;
 }
 
-.brand-mission {
+/* Links Strip */
+.bottom-links-strip {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.8vw, 24px);
+  flex-wrap: wrap;
+}
+
+.bottom-links-strip button {
+  background: transparent;
+  color: #475569;
+  font-family: var(--font-sans);
   font-size: 0.88rem;
-  color: #555e75;
-  line-height: 1.6;
-  max-width: 360px;
+  font-weight: 600;
+  padding: 6px 4px;
+  border-radius: 6px;
+  transition: color 0.18s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.center-contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 4px;
+.bottom-links-strip button:hover {
+  color: #0077ff;
 }
 
-.contact-item {
+.bottom-links-strip .accent-link {
+  color: #0077ff;
+}
+
+/* Helpline box */
+.bottom-helpline-box {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.85rem;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
   color: #475569;
 }
 
-.contact-icon {
+.helpline-icon {
   color: #0077ff;
-  flex-shrink: 0;
-  margin-top: 2px;
 }
 
-.contact-item a {
+.bottom-helpline-box a {
   color: #475569;
   text-decoration: none;
   transition: color 0.18s ease;
 }
 
-.contact-item a:hover {
+.bottom-helpline-box a:hover {
   color: #0077ff;
 }
 
-.status-indicator-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  color: #065f46;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  width: fit-content;
-  margin-top: 6px;
+.bullet-sep {
+  color: #cbd5e1;
 }
 
-.pulsing-green-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
-  animation: pulseGreen 2s infinite;
-}
-
-@keyframes pulseGreen {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-/* Links Columns */
-.footer-col-title {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: #111422;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-}
-
-.footer-links-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links-list li button {
-  background: transparent;
-  color: #555e75;
-  font-size: 0.88rem;
-  font-weight: 500;
-  text-align: left;
-  padding: 0;
-  transition: all 0.18s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  line-height: 1.4;
-}
-
-.footer-links-list li button:hover {
-  color: #0077ff;
-  transform: translateX(3px);
-}
-
-.link-tag {
-  font-size: 0.65rem;
-  font-weight: 800;
-  background: #eff6ff;
-  color: #0077ff;
-  border: 1px solid #bfdbfe;
-  padding: 2px 6px;
-  border-radius: 6px;
-  text-transform: uppercase;
-}
-
-.highlighted-link {
-  color: #0077ff !important;
-  font-weight: 700 !important;
-}
-
-/* App Direct Download Badge Box */
-.app-direct-badge-box {
-  margin-top: 20px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.app-direct-badge-box:hover {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  box-shadow: 0 6px 18px rgba(17, 20, 34, 0.08);
-  transform: translateY(-2px);
-}
-
-.apk-icon-circle {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: #0077ff;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.apk-badge-text {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.apk-badge-text strong {
-  font-size: 0.85rem;
-  color: #0f172a;
-}
-
-.apk-badge-text span {
-  font-size: 0.72rem;
-  color: #64748b;
-}
-
-/* ==========================================================================
-   Footer Bottom Bar
-   ========================================================================== */
-
-.footer-bottom-bar {
-  border-top: 1px solid rgba(17, 20, 34, 0.08);
-  padding-top: 26px;
+/* Legal / Copyright Bottom Row */
+.bottom-nav-legal-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
-}
-
-.copyright-text {
   font-size: 0.82rem;
   color: #64748b;
 }
 
-.copyright-text strong {
+.legal-copyright strong {
   color: #111422;
 }
 
-.fee-reminder-pill {
+.legal-reminder-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -399,29 +308,27 @@
   color: #475569;
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 5px 12px;
+  padding: 4px 12px;
   border-radius: var(--radius-pill);
 }
 
-.bottom-right-policies {
+.legal-policy-links {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.82rem;
-  color: #94a3b8;
 }
 
-.bottom-right-policies button {
+.legal-policy-links button {
   background: transparent;
   color: #64748b;
   font-size: 0.82rem;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.18s ease;
   padding: 0;
+  transition: color 0.18s ease;
 }
 
-.bottom-right-policies button:hover {
+.legal-policy-links button:hover {
   color: #111422;
 }
 
@@ -521,45 +428,42 @@
    Responsive Adaptations
    ========================================================================== */
 
-@media (max-width: 960px) {
-  .footer-cta-banner {
+@media (max-width: 900px) {
+  .join-footer-fullwidth-section {
+    padding: 54px 0 28px 0;
+  }
+
+  .bottom-nav-top-row {
     flex-direction: column;
     text-align: center;
-    align-items: center;
-    padding: 32px 24px;
+    gap: 18px;
   }
 
-  .cta-banner-content {
-    text-align: center;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-  }
-}
-
-@media (max-width: 640px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .cta-banner-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .footer-btn-primary,
-  .footer-btn-secondary {
-    width: 100%;
+  .bottom-links-strip {
     justify-content: center;
   }
 
-  .footer-bottom-bar {
+  .bottom-nav-legal-row {
     flex-direction: column;
     text-align: center;
-    align-items: center;
     gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .join-footer-fullwidth-section {
+    padding: 42px 0 24px 0;
+  }
+
+  .join-action-row {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .join-primary-btn,
+  .join-secondary-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
