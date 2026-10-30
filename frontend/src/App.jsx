@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AboutSection from './components/AboutSection';
 import CoursesView from './components/CoursesView';
 import BatchesView from './components/BatchesView';
 import AboutContactView from './components/AboutContactView';
@@ -24,14 +25,28 @@ export default function App() {
     setCurrentUser(null);
   };
 
+  const handleSelectTab = (tabId) => {
+    if (tabId === 'about') {
+      setActiveTab('home');
+      setTimeout(() => {
+        const el = document.getElementById('about');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 60);
+    } else {
+      setActiveTab(tabId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="app-viewport-wrapper">
-      {/* Framed Canvas Mockup Container from Reference Design */}
       <div className="stage-framed-container">
-        {/* Floating Pill Navbar with required computer center tabs */}
+        {/* Floating Pill Navbar */}
         <Navbar
           activeTab={activeTab}
-          onSelectTab={(tabId) => setActiveTab(tabId)}
+          onSelectTab={handleSelectTab}
           onOpenLogin={() => setIsLoginModalOpen(true)}
           onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
           onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
@@ -41,12 +56,18 @@ export default function App() {
         {/* View Router based on navigation tab */}
         <main className="main-content-area">
           {activeTab === 'home' && (
-            <Hero
-              onOpenCourses={() => setActiveTab('courses')}
-              onOpenBatches={() => setActiveTab('batches')}
-              onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
-              onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
-            />
+            <>
+              <Hero
+                onOpenCourses={() => handleSelectTab('courses')}
+                onOpenBatches={() => handleSelectTab('batches')}
+                onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
+                onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
+              />
+              <AboutSection
+                onOpenCourses={() => handleSelectTab('courses')}
+                onOpenBatches={() => handleSelectTab('batches')}
+              />
+            </>
           )}
 
           {activeTab === 'courses' && (
@@ -57,10 +78,6 @@ export default function App() {
             <BatchesView onBookSeat={() => setIsBookSeatModalOpen(true)} />
           )}
 
-          {activeTab === 'about' && (
-            <AboutContactView initialTab="about" />
-          )}
-
           {activeTab === 'contact' && (
             <AboutContactView initialTab="contact" />
           )}
@@ -69,9 +86,11 @@ export default function App() {
         {/* Micro Footer inside frame */}
         <footer className="framed-footer">
           <div className="footer-links-row">
-            <button type="button" onClick={() => setActiveTab('courses')}>Courses</button>
+            <button type="button" onClick={() => handleSelectTab('courses')}>Courses</button>
             <span>&bull;</span>
-            <button type="button" onClick={() => setActiveTab('batches')}>Batches (4 Seats/Lab)</button>
+            <button type="button" onClick={() => handleSelectTab('batches')}>Batches (4 Seats/Lab)</button>
+            <span>&bull;</span>
+            <button type="button" onClick={() => handleSelectTab('about')}>About Center</button>
             <span>&bull;</span>
             <button type="button" onClick={() => setIsDownloadAppModalOpen(true)}>Android APK</button>
             <span>&bull;</span>
