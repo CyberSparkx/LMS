@@ -1,122 +1,137 @@
-import React, { useState, useEffect } from 'react';
-import { Code2, ArrowUpRight, Sparkles, User, Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Terminal, Download, User, ArrowRight, Menu, X, BookOpen, Clock, Phone, Sparkles } from 'lucide-react';
 import './Navbar.css';
 
-export default function Navbar({ onOpenReserve }) {
-  const [scrolled, setScrolled] = useState(false);
+export default function Navbar({ 
+  activeTab, 
+  onSelectTab, 
+  onOpenLogin, 
+  onOpenBookSeat, 
+  onOpenDownloadApp,
+  currentUser 
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('Programs');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Programs', href: '#programs' },
-    { name: 'Curriculum', href: '#curriculum' },
-    { name: 'Live Batches', href: '#batches' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'About Hub', href: '#about' },
+  const navItems = [
+    { id: 'courses', label: 'Courses' },
+    { id: 'batches', label: 'Batches' },
+    { id: 'download-app', label: 'Download App' },
+    { id: 'about', label: 'About' },
+    { id: 'contact', label: 'Contact' },
   ];
 
-  return (
-    <header className={`navbar-header ${scrolled ? 'is-scrolled' : ''}`}>
-      <div className="navbar-container">
-        {/* Brand Logo */}
-        <a href="#" className="brand-logo" aria-label="Suraj CS Hub Home">
-          <div className="brand-icon-wrapper">
-            <Code2 size={20} className="brand-icon" />
-          </div>
-          <div className="brand-text">
-            <span className="brand-title">Suraj CS Hub</span>
-            <span className="brand-tag">CODE • LEARN • EXCEL</span>
-          </div>
-        </a>
+  const handleNavClick = (tabId) => {
+    if (tabId === 'download-app') {
+      onOpenDownloadApp();
+    } else {
+      onSelectTab(tabId);
+    }
+    setMobileMenuOpen(false);
+  };
 
-        {/* Center Pill Navigation (From Design Reference) */}
-        <nav className="center-pill-nav" aria-label="Main Navigation">
-          <div className="nav-pill-wrapper">
-            {navLinks.map((link) => (
-              <button
-                key={link.name}
-                type="button"
-                className={`nav-pill-item ${activeTab === link.name ? 'is-active' : ''}`}
-                onClick={() => {
-                  setActiveTab(link.name);
-                }}
-              >
-                {link.name}
-              </button>
-            ))}
+  return (
+    <nav className="framed-navbar-wrapper" aria-label="Main Navigation">
+      <div className="floating-pill-menu">
+        {/* Left Icon Badge (like the doodle avatar in reference) */}
+        <button 
+          type="button"
+          className="nav-mascot-badge" 
+          onClick={() => onSelectTab('home')}
+          title="Suraj CS Hub - Home"
+          aria-label="Suraj CS Hub Home"
+        >
+          <div className="mascot-pixel-box">
+            <Terminal size={17} strokeWidth={2.4} />
           </div>
-        </nav>
+        </button>
+
+        {/* Center Navigation Links (Exact reference pill styling) */}
+        <div className="nav-links-center">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className={`nav-link-btn ${activeTab === item.id ? 'is-active' : ''}`}
+              onClick={() => handleNavClick(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
 
         {/* Right CTA Actions */}
-        <div className="nav-actions">
+        <div className="nav-right-actions">
+          {/* Login / Profile Button */}
           <button 
             type="button" 
-            className="btn-login"
-            onClick={() => alert("Student Portal is opening soon! Reserve your seat to get early credentials.")}
+            className="nav-login-btn"
+            onClick={onOpenLogin}
+            title={currentUser ? "View Student Profile" : "Login to Student Portal"}
           >
             <User size={15} />
-            <span>Portal Login</span>
+            <span className="login-text">
+              {currentUser ? currentUser.name.split(' ')[0] : 'Login'}
+            </span>
           </button>
 
+          {/* Primary Action Button (Blue pill like 'Work with Me' in reference) */}
           <button 
             type="button" 
-            className="btn-reserve-pill"
-            onClick={onOpenReserve}
+            className="nav-cta-blue-pill"
+            onClick={onOpenBookSeat}
           >
-            <span>Reserve Seat</span>
-            <ArrowUpRight size={16} />
+            <span>Book Seat</span>
           </button>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <button 
             type="button" 
-            className="mobile-toggle-btn"
+            className="nav-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
+            aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="mobile-menu-drawer">
-          <div className="mobile-nav-links">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="mobile-nav-item"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-          <div className="mobile-drawer-footer">
-            <button 
-              type="button" 
-              className="btn-reserve-pill full-width"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenReserve();
-              }}
+        <div className="nav-mobile-dropdown">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className="nav-mobile-item"
+              onClick={() => handleNavClick(item.id)}
             >
-              <span>Reserve Seat</span>
-              <ArrowUpRight size={16} />
+              {item.label}
             </button>
-          </div>
+          ))}
+          <div className="mobile-action-divider"></div>
+          <button 
+            type="button" 
+            className="nav-mobile-item highlight"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenLogin();
+            }}
+          >
+            <User size={16} />
+            <span>{currentUser ? 'My Profile & LMS' : 'Student Login'}</span>
+          </button>
+          <button 
+            type="button" 
+            className="nav-mobile-cta"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenBookSeat();
+            }}
+          >
+            Book Seat
+          </button>
         </div>
       )}
-    </header>
+    </nav>
   );
 }

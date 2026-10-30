@@ -1,45 +1,59 @@
 /* ==========================================================================
-   App Component Styles
+   App Component Styling
    ========================================================================== */
 
-.hub-footer {
-  position: relative;
-  z-index: 5;
+.main-content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  border-top: 1px solid rgba(18, 21, 38, 0.06);
-  padding: 32px 24px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  margin-top: 40px;
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
+.framed-footer {
+  width: 100%;
+  padding: 18px 24px;
+  background: #ffffff;
+  border-top: 1px solid rgba(17, 20, 34, 0.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  font-size: 0.8rem;
+  color: #6a748c;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-links-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-.footer-brand {
-  font-size: 0.88rem;
-  color: #4b5268;
-}
-
-.footer-brand strong {
-  color: #121526;
-}
-
-.footer-copy {
+.footer-links-row button {
+  background: transparent;
+  color: #555e75;
   font-size: 0.8rem;
-  color: #8993aa;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.footer-links-row button:hover {
+  color: #111422;
+}
+
+.copyright-tag {
+  font-size: 0.75rem;
+  color: #8b95ac;
 }
 
 @media (max-width: 600px) {
-  .footer-content {
+  .framed-footer {
     flex-direction: column;
     text-align: center;
+    justify-content: center;
+  }
+  .footer-links-row {
+    justify-content: center;
   }
 }

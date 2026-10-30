@@ -3,40 +3,36 @@
    ========================================================================== */
 
 :root {
-  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-pixel: 'Silkscreen', monospace;
+  --font-tech: 'Space Grotesk', sans-serif;
 
-  /* Color Palette */
-  --bg-main: #f8f9fb;
+  /* Color Palette - Minimalist warm off-white from reference */
+  --bg-page: #e8eaed;
+  --bg-canvas: #f6f7f8;
   --bg-surface: #ffffff;
-  --bg-surface-glass: rgba(255, 255, 255, 0.78);
-  --bg-pill: rgba(255, 255, 255, 0.9);
-  
-  --text-primary: #121526;
-  --text-secondary: #575e75;
-  --text-muted: #8b93a7;
-  --text-dark: #0b0d17;
+  --bg-pill: rgba(255, 255, 255, 0.95);
 
-  --accent-primary: #121526;
-  --accent-hover: #232842;
-  --accent-electric: #4f46e5;
-  --accent-emerald: #10b981;
-  --accent-amber: #f59e0b;
+  --text-primary: #111422;
+  --text-secondary: #586074;
+  --text-muted: #8e97ab;
 
-  --border-subtle: rgba(18, 21, 38, 0.07);
-  --border-glass: rgba(255, 255, 255, 0.9);
-  --border-focus: rgba(79, 70, 229, 0.35);
+  --accent-blue: #0077ff;
+  --accent-blue-hover: #0062d4;
+  --accent-dark: #111422;
+  --accent-dark-hover: #22273d;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 6px rgba(18, 21, 38, 0.04);
-  --shadow-card: 0 12px 36px -8px rgba(18, 21, 38, 0.08), 0 2px 8px rgba(18, 21, 38, 0.03);
-  --shadow-float: 0 24px 50px -12px rgba(18, 21, 38, 0.12), 0 4px 16px rgba(18, 21, 38, 0.04);
-  --shadow-device: 0 35px 70px -15px rgba(22, 28, 45, 0.22), 0 10px 24px -5px rgba(22, 28, 45, 0.1);
-  --shadow-glow: 0 0 40px rgba(79, 70, 229, 0.12);
+  --border-frame: #111422;
+  --border-subtle: rgba(17, 20, 34, 0.08);
+
+  --shadow-frame: 0 30px 80px -15px rgba(17, 20, 34, 0.18), 0 10px 25px -5px rgba(17, 20, 34, 0.08);
+  --shadow-card: 0 16px 36px -10px rgba(17, 20, 34, 0.12), 0 2px 8px rgba(17, 20, 34, 0.04);
+  --shadow-fanned: 0 20px 45px -10px rgba(17, 20, 34, 0.22);
 
   --radius-pill: 9999px;
-  --radius-card: 28px;
-  --radius-sm: 14px;
+  --radius-frame: 36px;
+  --radius-card: 22px;
 }
 
 *, *::before, *::after {
@@ -48,60 +44,37 @@
 html, body {
   width: 100%;
   min-height: 100%;
-  background-color: var(--bg-main);
+  background-color: var(--bg-page);
   color: var(--text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
   line-height: 1.5;
 }
 
-/* Background Atmosphere */
-.page-wrapper {
-  position: relative;
+/* Outer browser wrapper to replicate the framed screen effect */
+.app-viewport-wrapper {
   min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Framed Canvas (Exact look of the reference mockup frame) */
+.stage-framed-container {
+  position: relative;
   width: 100%;
+  max-width: 1360px;
+  background-color: var(--bg-canvas);
+  border: 3px solid var(--border-frame);
+  border-radius: var(--radius-frame);
+  box-shadow: var(--shadow-frame);
   overflow: hidden;
-  background: radial-gradient(circle at 50% 18%, rgba(238, 242, 255, 0.8) 0%, rgba(248, 249, 251, 1) 60%);
-}
-
-/* Ripple Rings (Concentric circles from reference design) */
-.ripple-container {
-  position: absolute;
-  top: 360px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.ripple-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 1px solid rgba(18, 21, 38, 0.045);
-}
-
-.ripple-circle-1 { width: 340px; height: 340px; }
-.ripple-circle-2 { width: 560px; height: 560px; border-color: rgba(18, 21, 38, 0.04); }
-.ripple-circle-3 { width: 840px; height: 840px; border-color: rgba(18, 21, 38, 0.035); }
-.ripple-circle-4 { width: 1140px; height: 1140px; border-color: rgba(18, 21, 38, 0.025); }
-.ripple-circle-5 { width: 1460px; height: 1460px; border-color: rgba(18, 21, 38, 0.018); }
-
-/* Ambient lighting wash (like shadow/sheen in Image 2) */
-.ambient-sheen {
-  position: absolute;
-  top: -80px;
-  right: -5%;
-  width: 65vw;
-  height: 55vw;
-  background: radial-gradient(ellipse at center, rgba(230, 235, 252, 0.45) 0%, rgba(248, 249, 251, 0) 70%);
-  filter: blur(60px);
-  pointer-events: none;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 48px);
 }
 
 /* Base button styles */
@@ -110,7 +83,7 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 a {
@@ -120,15 +93,26 @@ a {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-main);
+  background: var(--bg-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d8dce6;
+  background: #cbd3e0;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #bcc3d4;
+  background: #aab4c5;
+}
+
+@media (max-width: 768px) {
+  .app-viewport-wrapper {
+    padding: 8px;
+  }
+  .stage-framed-container {
+    border-radius: 20px;
+    border-width: 2px;
+    min-height: calc(100vh - 16px);
+  }
 }
