@@ -9,6 +9,7 @@ import AboutContactView from './components/AboutContactView';
 import LoginModal from './components/LoginModal';
 import DownloadAppModal from './components/DownloadAppModal';
 import ReservationModal from './components/ReservationModal';
+import Footer from './components/Footer';
 import './App.css';
 
 export default function App() {
@@ -94,21 +95,13 @@ export default function App() {
           )}
         </main>
 
-        {/* Micro Footer inside frame */}
-        <footer className="framed-footer">
-          <div className="footer-links-row">
-            <button type="button" onClick={() => handleSelectTab('courses')}>Courses</button>
-            <span>&bull;</span>
-            <button type="button" onClick={() => handleSelectTab('batches')}>Batches (4 Seats/Lab)</button>
-            <span>&bull;</span>
-            <button type="button" onClick={() => handleSelectTab('about')}>About Center</button>
-            <span>&bull;</span>
-            <button type="button" onClick={() => setIsDownloadAppModalOpen(true)}>Android APK</button>
-            <span>&bull;</span>
-            <button type="button" onClick={() => setIsLoginModalOpen(true)}>Student LMS</button>
-          </div>
-          <span className="copyright-tag">&copy; {new Date().getFullYear()} Suraj CS Hub. All rights reserved.</span>
-        </footer>
+        {/* Comprehensive Center Footer */}
+        <Footer
+          onSelectTab={handleSelectTab}
+          onOpenLogin={() => setIsLoginModalOpen(true)}
+          onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
+          onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
+        />
       </div>
 
       {/* Interactive Modals */}
