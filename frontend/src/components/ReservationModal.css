@@ -1,0 +1,271 @@
+/* ==========================================================================
+   Reservation Modal Styling
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(14, 18, 30, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px -15px rgba(18, 21, 38, 0.25);
+  padding: 34px 28px;
+  border: 1px solid rgba(18, 21, 38, 0.08);
+  animation: slideUp 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f4f9;
+  color: #5d6780;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #e2e7f0;
+  color: #121526;
+}
+
+.modal-header {
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+.modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(79, 70, 229, 0.08);
+  color: #4f46e5;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #121526;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.modal-desc {
+  font-size: 0.88rem;
+  color: #636c84;
+  line-height: 1.45;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #384157;
+}
+
+.form-group select,
+.input-wrap input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(18, 21, 38, 0.12);
+  background: #fbfbfe;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #121526;
+  transition: all 0.2s;
+}
+
+.form-group select:focus,
+.input-wrap input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap .input-icon {
+  position: absolute;
+  left: 12px;
+  color: #8892a9;
+  pointer-events: none;
+}
+
+.input-wrap input {
+  padding-left: 36px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.mode-toggle-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.mode-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(18, 21, 38, 0.1);
+  background: #f8f9fb;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #555e75;
+  transition: all 0.2s;
+}
+
+.mode-btn.is-active {
+  background: #121526;
+  color: #ffffff;
+  border-color: #121526;
+}
+
+.btn-modal-submit {
+  background: #121526;
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 600;
+  padding: 13px;
+  border-radius: var(--radius-pill);
+  margin-top: 6px;
+  box-shadow: 0 6px 18px rgba(18, 21, 38, 0.2);
+  transition: all 0.2s;
+}
+
+.btn-modal-submit:hover {
+  background: #252a42;
+  transform: translateY(-1px);
+}
+
+/* Success View */
+.modal-success-view {
+  text-align: center;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.success-check {
+  color: #10b981;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #121526;
+  margin-bottom: 8px;
+}
+
+.success-desc {
+  font-size: 0.88rem;
+  color: #5c657e;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.reservation-summary-card {
+  width: 100%;
+  background: #f8f9fb;
+  border: 1px solid rgba(18, 21, 38, 0.06);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 22px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.84rem;
+}
+
+.summary-label {
+  color: #7b849b;
+}
+
+.summary-val {
+  font-weight: 600;
+  color: #121526;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

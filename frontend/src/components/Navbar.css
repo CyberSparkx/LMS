@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Navbar Styling - Floating Pill & Clean Off-White Aesthetic
+   ========================================================================== */
+
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 18px 24px;
+  transition: all 0.3s ease;
+}
+
+.navbar-header.is-scrolled {
+  padding: 12px 24px;
+  background: rgba(248, 249, 251, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(18, 21, 38, 0.05);
+}
+
+.navbar-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #121526;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(18, 21, 38, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover .brand-icon-wrapper {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #121526;
+}
+
+.brand-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #7b849b;
+}
+
+/* Center Pill Navigation (Exact match to reference image pill bar) */
+.center-pill-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-pill-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 5px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(18, 21, 38, 0.06);
+  box-shadow: 0 2px 14px rgba(18, 21, 38, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.nav-pill-item {
+  background: transparent;
+  color: #555d73;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.nav-pill-item:hover {
+  color: #121526;
+  background: rgba(18, 21, 38, 0.04);
+}
+
+.nav-pill-item.is-active {
+  background: #ffffff;
+  color: #121526;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(18, 21, 38, 0.06);
+}
+
+/* Right Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  color: #4b5268;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(18, 21, 38, 0.08);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.btn-login:hover {
+  background: #ffffff;
+  color: #121526;
+  border-color: rgba(18, 21, 38, 0.16);
+  box-shadow: 0 4px 12px rgba(18, 21, 38, 0.05);
+}
+
+.btn-reserve-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #121526;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(18, 21, 38, 0.2);
+  transition: all 0.22s ease;
+}
+
+.btn-reserve-pill:hover {
+  background: #242944;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(18, 21, 38, 0.28);
+}
+
+.btn-reserve-pill.full-width {
+  width: 100%;
+  justify-content: center;
+  padding: 12px;
+}
+
+.mobile-toggle-btn {
+  display: none;
+  background: #ffffff;
+  border: 1px solid rgba(18, 21, 38, 0.08);
+  color: #121526;
+  padding: 8px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Drawer */
+.mobile-menu-drawer {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  right: 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(18, 21, 38, 0.14);
+  border: 1px solid rgba(18, 21, 38, 0.08);
+  margin-top: 8px;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.mobile-nav-item {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2b3145;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.mobile-nav-item:hover {
+  background: #f3f5f9;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 960px) {
+  .center-pill-nav {
+    display: none;
+  }
+  .mobile-toggle-btn {
+    display: flex;
+  }
+  .mobile-menu-drawer {
+    display: block;
+  }
+}
+
+@media (max-width: 580px) {
+  .btn-login {
+    display: none;
+  }
+  .navbar-header {
+    padding: 14px 16px;
+  }
+}

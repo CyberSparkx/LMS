@@ -1,0 +1,19 @@
+{
+  "name": "suraj-cs-hub-lms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Suraj CS Hub - Learning Management System",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview"
+  },
+  "keywords": [
+    "lms",
+    "education",
+    "computer-science",
+    "coaching"
+  ],
+  "author": "CyberSparkx",
+  "license": "MIT"
+}
