@@ -7,8 +7,8 @@
   width: 100%;
   padding: 0;
   margin: 0;
-  background: #ffffff;
-  border-top: 1px solid rgba(17, 20, 34, 0.08);
+  background: #f7f6f3; /* Exactly matching About and Gallery sections */
+  border-top: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@
 
 .join-footer-fullwidth-section {
   width: 100%;
-  background: #ffffff;
+  background: #f7f6f3; /* Exactly matching About and Gallery sections */
   padding: 72px 0 36px 0;
   display: flex;
   flex-direction: column;
@@ -99,14 +99,15 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #f1f4f9;
+  background: #ffffff;
   color: #2b3144;
   font-family: var(--font-sans);
   font-size: 0.94rem;
   font-weight: 700;
   padding: 13px 22px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(17, 20, 34, 0.08);
+  border: 1px solid rgba(17, 20, 34, 0.12);
+  box-shadow: 0 2px 8px rgba(17, 20, 34, 0.04);
   transition: all 0.22s ease;
   white-space: nowrap;
   cursor: pointer;
