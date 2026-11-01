@@ -1,53 +1,59 @@
 /* ==========================================================================
-   Hero Styling - Exact Match to Reference Design (Fanned Out Cards, No Borders)
+   Suraj CS Hub - Hero Section & Fanned Cards Deck
    ========================================================================== */
 
 .fanned-hero-section {
   position: relative;
   width: 100%;
-  padding: 48px 20px 40px 20px;
+  padding: 52px 20px 48px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   text-align: center;
-  flex: 1;
+  background-color: var(--bg-page);
+  overflow: visible;
 }
 
 /* Typography Container */
 .hero-typography-container {
-  max-width: 860px;
-  margin: 0 auto 38px auto;
+  max-width: 820px;
+  margin: 18px auto 34px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .hero-fanned-title {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: 1.05;
   color: #111422;
-  margin-bottom: 2px;
+  margin-top: 14px;
+  margin-bottom: 6px;
 }
 
 .title-top-line {
-  font-family: var(--font-display);
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.3rem, 5.4vw, 4.2rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
+  color: #111422;
 }
 
 .title-pixel-line {
-  font-family: var(--font-pixel);
-  font-size: clamp(2rem, 4.6vw, 3.6rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #111422;
-  margin-top: 4px;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.3rem, 5.4vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #0077ff;
+  margin-top: 8px;
+  text-transform: uppercase;
 }
 
 .hero-fanned-subtitle {
@@ -55,16 +61,17 @@
   color: #555e75;
   max-width: 580px;
   line-height: 1.55;
-  font-weight: 400;
+  font-weight: 500;
 }
 
+/* Quick Badges */
 .hero-quick-badges {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .quick-pill {
@@ -87,15 +94,15 @@
 }
 
 /* ==========================================================================
-   Fanned-out Cards Deck (Borderless, Smooth Curves & Soft Shadows)
+   Fanned-out Cards Deck (Using Editorial Card Design from Reference Image)
    ========================================================================== */
 
 .fanned-deck-wrapper {
   position: relative;
   width: 100%;
   max-width: 1160px;
-  margin: 10px auto 40px auto;
-  padding: 20px 0 30px 0;
+  margin: 10px auto 20px auto;
+  padding: 10px 0 25px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,20 +118,22 @@
   height: 380px;
 }
 
+/* Base Deck Card - Portrait proportions & smooth rounded corners */
 .deck-card {
   position: relative;
-  width: 195px;
-  height: 295px;
-  margin-left: -58px;
-  border-radius: 26px;
-  padding: 12px;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 215px;
+  height: 310px;
+  margin-left: -52px;
+  border-radius: 22px;
+  padding: 18px 16px;
   cursor: pointer;
   transform-origin: bottom center;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
   box-shadow: 
-    0 20px 45px -10px rgba(17, 20, 34, 0.22),
-    0 4px 14px rgba(17, 20, 34, 0.06);
+    0 18px 40px -10px rgba(17, 20, 34, 0.16),
+    0 4px 12px rgba(17, 20, 34, 0.05);
 }
 
 .deck-card:first-child {
@@ -133,159 +142,148 @@
 
 .deck-card.is-hovered {
   box-shadow: 
-    0 30px 60px -12px rgba(17, 20, 34, 0.36),
-    0 8px 24px rgba(17, 20, 34, 0.1);
+    0 28px 60px -12px rgba(17, 20, 34, 0.3),
+    0 8px 24px rgba(17, 20, 34, 0.08);
 }
 
-/* Screen Mockup Frame inside each card - No harsh borders */
-.card-mock-screen {
+/* Card Themes matching reference image palette (Dusty Pink, Terracotta, White, Sage) */
+.deck-card.editorial-pink {
+  background-color: #dfb2c5;
+  color: #111422;
+}
+
+.deck-card.editorial-orange {
+  background-color: #e17244;
+  color: #111422;
+}
+
+.deck-card.editorial-white {
+  background-color: #ffffff;
+  color: #111422;
+  box-shadow: 
+    0 22px 48px -10px rgba(17, 20, 34, 0.2),
+    0 4px 14px rgba(17, 20, 34, 0.06);
+}
+
+.deck-card.editorial-sage {
+  background-color: #c4dcce;
+  color: #111422;
+}
+
+.deck-card.is-center-hero {
+  border: 1.5px solid rgba(17, 20, 34, 0.1);
+}
+
+/* ==========================================================================
+   Internal Layout of Each Card (Exact match to User Reference Image)
+   ========================================================================== */
+
+.ref-card-interior {
   width: 100%;
   height: 100%;
-  border-radius: 20px;
-  padding: 16px 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
 }
 
-/* Card Themes matching vibrant aesthetic in reference */
-.deck-card.dark-teal {
-  background: linear-gradient(150deg, #134e4a, #042f2e);
-  color: #ffffff;
+/* Top Row: Hand-drawn Illustration (Left) & Bold Date Block (Right) */
+.ref-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.deck-card.navy {
-  background: linear-gradient(150deg, #1e293b, #0f172a);
-  color: #ffffff;
-}
-
-.deck-card.ocean {
-  background: linear-gradient(150deg, #0284c7, #075985);
-  color: #ffffff;
-}
-
-.deck-card.featured-slate {
-  background: #ffffff;
-  color: #111422;
-  box-shadow: 
-    0 20px 45px -10px rgba(17, 20, 34, 0.16),
-    0 4px 16px rgba(17, 20, 34, 0.06);
-}
-
-.deck-card.emerald {
-  background: linear-gradient(150deg, #059669, #064e3b);
-  color: #ffffff;
-}
-
-.deck-card.indigo {
-  background: linear-gradient(150deg, #4f46e5, #312e81);
-  color: #ffffff;
-}
-
-.deck-card.crimson-coral {
-  background: linear-gradient(150deg, #f43f5e, #be123c);
-  color: #ffffff;
-}
-
-/* Mock Card Header */
-.mock-top-header {
+.ref-illustration-box {
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.mock-category {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  opacity: 0.88;
+.card-ref-illustration {
+  width: 44px;
+  height: 44px;
+  overflow: visible;
 }
 
-.mock-badge {
-  font-size: 0.62rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(4px);
-}
-
-.deck-card.featured-slate .mock-badge {
-  background: #f1f4f9;
-  color: #111422;
-}
-
-/* Mock Card Body */
-.mock-body {
+/* Date Block matching reference typography */
+.ref-date-box {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-top: 10px;
+  align-items: flex-end;
+  text-align: right;
+  line-height: 1;
 }
 
-.mock-icon-wrap {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4px;
-}
-
-.deck-card.featured-slate .mock-icon-wrap {
-  background: #f1f4f9;
+.ref-date-big {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: #111422;
+  line-height: 0.95;
 }
 
-.mock-title {
-  font-family: var(--font-display);
-  font-size: 1.08rem;
+.ref-date-sub {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.64rem;
   font-weight: 700;
-  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #111422;
+  margin-top: 4px;
+  opacity: 0.85;
 }
 
-.mock-details {
-  font-size: 0.74rem;
-  line-height: 1.35;
-  opacity: 0.88;
-}
-
-/* Mock Card Footer */
-.mock-footer {
+/* Middle Content: Editorial Headline matching reference image (Plus Jakarta Sans 600) */
+.ref-card-body {
+  margin: 10px 0;
+  flex: 1;
   display: flex;
   align-items: center;
+}
+
+.ref-card-headline {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: #111422;
+  margin: 0;
+}
+
+/* Bottom Row: Byline on Left, Action Tag on Right */
+.ref-card-footer {
+  display: flex;
   justify-content: space-between;
-  margin-top: auto;
-  padding-top: 10px;
-}
-
-.mock-stat-badge {
-  font-size: 0.74rem;
-  font-weight: 700;
-}
-
-.mock-arrow-action {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-  display: flex;
   align-items: center;
-  justify-content: center;
-  transition: transform 0.2s;
+  width: 100%;
+  padding-top: 8px;
 }
 
-.deck-card:hover .mock-arrow-action {
-  transform: translateX(2px);
+.ref-byline {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #111422;
+  opacity: 0.85;
 }
 
-.deck-card.featured-slate .mock-arrow-action {
-  background: #111422;
-  color: #ffffff;
+.ref-tag-pill {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #111422;
+  opacity: 0.85;
 }
 
 /* ==========================================================================
@@ -294,36 +292,40 @@
 
 @media (max-width: 1024px) {
   .deck-card {
-    width: 170px;
-    height: 265px;
-    margin-left: -48px;
+    width: 190px;
+    height: 290px;
+    margin-left: -58px;
+    padding: 16px 14px;
+  }
+
+  .ref-card-headline {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 768px) {
   .fanned-hero-section {
-    padding: 30px 16px;
+    padding: 26px 14px 40px 14px;
   }
 
   .fanned-deck-wrapper {
     overflow-x: auto;
     justify-content: flex-start;
-    padding: 10px 10px 30px 10px;
+    padding: 15px 12px 30px 12px;
     -webkit-overflow-scrolling: touch;
   }
 
   .fanned-deck-container {
+    justify-content: flex-start;
     width: max-content;
-    height: auto;
-    padding: 10px 20px;
+    padding: 0 20px;
   }
 
   .deck-card {
-    transform: none !important;
-    margin-left: 14px;
-    flex-shrink: 0;
     width: 180px;
-    height: 270px;
+    height: 275px;
+    margin-left: -35px;
+    transform: none !important;
   }
 
   .deck-card:first-child {

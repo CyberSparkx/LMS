@@ -3,10 +3,10 @@
    ========================================================================== */
 
 :root {
-  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-pixel: 'Silkscreen', monospace;
-  --font-tech: 'Space Grotesk', sans-serif;
+  --font-pixel: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-tech: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Color Palette - Minimalist clean off-white from reference */
   --bg-page: #f7f8f9;
