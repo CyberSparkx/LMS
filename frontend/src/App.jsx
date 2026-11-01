@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import ImageGallerySection from './components/ImageGallerySection';
 import ReviewsSection from './components/ReviewsSection';
+import ContactSection from './components/ContactSection';
 import CoursesView from './components/CoursesView';
 import BatchesView from './components/BatchesView';
 import AboutContactView from './components/AboutContactView';
@@ -53,6 +54,14 @@ export default function App() {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       }, 60);
+    } else if (tabId === 'contact') {
+      setActiveTab('home');
+      setTimeout(() => {
+        const el = document.getElementById('contact-us');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 60);
     } else {
       setActiveTab(tabId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -89,6 +98,7 @@ export default function App() {
               />
               <ImageGallerySection />
               <ReviewsSection />
+              <ContactSection />
             </>
           )}
 
