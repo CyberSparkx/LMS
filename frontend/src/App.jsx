@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import ImageGallerySection from './components/ImageGallerySection';
+import ReviewsSection from './components/ReviewsSection';
 import CoursesView from './components/CoursesView';
 import BatchesView from './components/BatchesView';
 import AboutContactView from './components/AboutContactView';
@@ -44,6 +45,14 @@ export default function App() {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       }, 60);
+    } else if (tabId === 'reviews') {
+      setActiveTab('home');
+      setTimeout(() => {
+        const el = document.getElementById('reviews');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 60);
     } else {
       setActiveTab(tabId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -79,6 +88,7 @@ export default function App() {
                 onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
               />
               <ImageGallerySection />
+              <ReviewsSection />
             </>
           )}
 

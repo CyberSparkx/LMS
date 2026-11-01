@@ -16,6 +16,7 @@ export default function Navbar({
     { id: 'courses', label: 'Courses' },
     { id: 'batches', label: 'Batches' },
     { id: 'gallery', label: 'Gallery' },
+    { id: 'reviews', label: 'Reviews' },
     { id: 'download-app', label: 'Download App' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
