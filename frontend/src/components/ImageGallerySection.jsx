@@ -14,9 +14,9 @@ export default function ImageGallerySection() {
       tag: 'Live Lecture & Lab',
       badge: 'Instructor Live',
       cardTheme: 'theme-lime',
-      rotation: -10,
-      xOffset: -95,
-      yOffset: 0,
+      rotation: -12,
+      xOffset: -155,
+      yOffset: 6,
       description: 'Prof. Suraj guiding students step-by-step through Python logic, data structures, and practical coding on lab monitors.'
     },
     {
@@ -26,9 +26,9 @@ export default function ImageGallerySection() {
       tag: 'Campus Infrastructure',
       badge: 'Dedicated Workstations',
       cardTheme: 'theme-cyan',
-      rotation: -3,
-      xOffset: -32,
-      yOffset: -14,
+      rotation: -4,
+      xOffset: -52,
+      yOffset: -8,
       description: 'Spacious, air-conditioned computer center equipped with high-speed workstations, ergonomic seating, and gigabit internet.'
     },
     {
@@ -39,8 +39,8 @@ export default function ImageGallerySection() {
       badge: 'Code Reviews',
       cardTheme: 'theme-emerald',
       rotation: 5,
-      xOffset: 32,
-      yOffset: -10,
+      xOffset: 52,
+      yOffset: -6,
       description: 'Zero doubts left unresolved. Instructors review code directly at student screens, providing real-time feedback and guidance.'
     },
     {
@@ -50,9 +50,9 @@ export default function ImageGallerySection() {
       tag: 'Focused Learning',
       badge: 'Micro-Batch (4 Seats)',
       cardTheme: 'theme-peach',
-      rotation: 12,
-      xOffset: 95,
-      yOffset: 2,
+      rotation: 13,
+      xOffset: 155,
+      yOffset: 6,
       description: 'Strict 4-student cap per batch ensures maximum personal attention, peer collaboration, and a distraction-free learning atmosphere.'
     }
   ];
