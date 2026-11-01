@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   padding: 72px 24px 72px 24px;
-  background: #ffffff;
+  background: var(--bg-page);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,57 +93,48 @@
   justify-content: center;
 }
 
-/* Cards: portrait proportions, tightly fanned left-to-right */
+/* Cards: portrait proportions, tightly fanned left-to-right — clean, no colored ring */
 .spencer-photo-card {
   position: absolute;
   width: 200px;
   height: 240px;
-  border-radius: 22px;
-  padding: 5px;
+  border-radius: 18px;
+  padding: 0;
   cursor: pointer;
   transform-origin: bottom center;
   transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.36s ease,
               z-index 0s;
   user-select: none;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow:
+    0 16px 38px -8px rgba(17, 20, 34, 0.20),
+    0 4px 12px rgba(17, 20, 34, 0.08);
 }
 
-/* Vibrant colored card borders (Spencer Gabor card tones) */
-.spencer-photo-card.theme-lime {
-  background: #6ee03a;
-  box-shadow: 0 24px 60px -10px rgba(100, 200, 40, 0.40),
-              0 6px 20px rgba(0,0,0,0.10);
-}
-
-.spencer-photo-card.theme-cyan {
-  background: #1b1e2e;
-  box-shadow: 0 24px 60px -10px rgba(17, 20, 34, 0.50),
-              0 6px 20px rgba(0,0,0,0.15);
-}
-
-.spencer-photo-card.theme-emerald {
-  background: #4cce68;
-  box-shadow: 0 24px 60px -10px rgba(60, 190, 90, 0.40),
-              0 6px 20px rgba(0,0,0,0.10);
-}
-
+/* Neutral clean shadows on all cards — colored rings removed */
+.spencer-photo-card.theme-lime,
+.spencer-photo-card.theme-cyan,
+.spencer-photo-card.theme-emerald,
 .spencer-photo-card.theme-peach {
-  background: #f2cdd6;
-  box-shadow: 0 24px 60px -10px rgba(220, 150, 160, 0.38),
-              0 6px 20px rgba(0,0,0,0.08);
+  background: #ffffff;
+  box-shadow:
+    0 16px 38px -8px rgba(17, 20, 34, 0.20),
+    0 4px 12px rgba(17, 20, 34, 0.08);
 }
 
 .spencer-photo-card.is-hovered {
   box-shadow:
-    0 36px 80px -12px rgba(17, 20, 34, 0.45),
-    0 10px 30px rgba(17, 20, 34, 0.14);
+    0 28px 60px -10px rgba(17, 20, 34, 0.32),
+    0 8px 24px rgba(17, 20, 34, 0.12);
 }
 
 .photo-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 17px;
+  border-radius: inherit;
   overflow: hidden;
   background: #0f172a;
 }
