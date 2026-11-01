@@ -5,6 +5,7 @@ import './Hero.css';
 export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, onOpenBookSeat }) {
   const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
 
+  // 7 Fanned-Out Cards representing core offerings, styled with the user's reference editorial card design
   const fannedCards = [
     {
       id: 1,
@@ -20,8 +21,10 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
       onClick: onOpenDownloadApp,
       illustration: (
         <svg viewBox="0 0 60 60" className="card-ref-illustration" fill="none" stroke="#111422" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Smartphone Frame */}
           <rect x="18" y="10" width="24" height="40" rx="4" />
           <line x1="26" y1="14" x2="34" y2="14" strokeWidth="1.8" />
+          {/* Play & Code Doodle */}
           <polygon points="27,24 27,34 36,29" fill="#111422" />
           <path d="M 23 42 L 37 42" strokeWidth="2" />
           <circle cx="30" cy="46" r="1.5" fill="#111422" stroke="none" />
@@ -42,10 +45,12 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
       onClick: onOpenCourses,
       illustration: (
         <svg viewBox="0 0 60 60" className="card-ref-illustration" fill="none" stroke="#111422" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Open Book Roof */}
           <path d="M 30 14 L 16 7 L 16 18 L 30 23 Z" fill="#ffffff" strokeWidth="2.2" />
           <path d="M 30 14 L 44 7 L 44 18 L 30 23 Z" fill="#ffffff" strokeWidth="2.2" />
           <line x1="20" y1="10" x2="20" y2="20" strokeWidth="1.6" />
           <line x1="40" y1="10" x2="40" y2="20" strokeWidth="1.6" />
+          {/* Building Center & Windows */}
           <rect x="18" y="23" width="24" height="24" rx="1" fill="#ffffff" strokeWidth="2.2" />
           <rect x="22" y="27" width="3.5" height="3.5" />
           <rect x="28" y="27" width="3.5" height="3.5" fill="#111422" />
@@ -53,6 +58,7 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
           <rect x="22" y="33" width="3.5" height="3.5" fill="#111422" />
           <rect x="28" y="33" width="3.5" height="3.5" />
           <rect x="34" y="33" width="3.5" height="3.5" fill="#111422" />
+          {/* Door */}
           <path d="M 27 47 L 27 40 L 33 40 L 33 47" strokeWidth="2" />
           <line x1="24" y1="47" x2="36" y2="47" strokeWidth="2.4" />
         </svg>
@@ -72,16 +78,20 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
       onClick: onOpenCourses,
       illustration: (
         <svg viewBox="0 0 60 60" className="card-ref-illustration" fill="none" stroke="#111422" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Left Pencil */}
           <rect x="18" y="19" width="7" height="13" rx="1" />
           <path d="M 18 19 L 21.5 12 L 25 19 Z" />
           <line x1="18" y1="22" x2="25" y2="22" strokeWidth="1.6" />
+          {/* Center Tall Pencil */}
           <rect x="28" y="13" width="8" height="16" rx="1" strokeWidth="2.4" />
           <path d="M 28 13 L 32 6 L 36 13 Z" strokeWidth="2.4" />
           <line x1="28" y1="17" x2="36" y2="17" strokeWidth="1.8" />
+          {/* Right Angled Pencil */}
           <g transform="rotate(14 42 22)">
             <rect x="38" y="16" width="7" height="14" rx="1" />
             <path d="M 38 30 L 41.5 38 L 45 30 Z" fill="#111422" />
           </g>
+          {/* Rocket Propulsion Smoke Plumes */}
           <path d="M 21.5 32 C 21.5 38, 19 41, 16 45" strokeWidth="1.8" />
           <path d="M 32 29 C 32 38, 30 42, 28 48" strokeWidth="2" />
           <path d="M 24 43 C 28 42, 32 44, 38 42 C 42 45, 45 44, 48 47" strokeWidth="1.8" />
@@ -103,10 +113,13 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
       onClick: onOpenBatches,
       illustration: (
         <svg viewBox="0 0 60 60" className="card-ref-illustration" fill="none" stroke="#111422" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Laptop Screen Frame */}
           <rect x="14" y="12" width="32" height="20" rx="2" strokeWidth="2.2" />
           <line x1="20" y1="18" x2="28" y2="18" strokeWidth="1.8" />
           <line x1="20" y1="23" x2="36" y2="23" strokeWidth="1.8" />
+          {/* Laptop Base */}
           <path d="M 10 32 L 50 32 L 46 37 L 14 37 Z" strokeWidth="2.2" />
+          {/* Hands Typing on Keyboard */}
           <path d="M 16 22 C 20 21, 23 24, 26 24 C 29 24, 31 22, 34 22" strokeWidth="1.8" />
           <path d="M 44 20 C 40 22, 37 25, 34 28" strokeWidth="1.8" />
           <path d="M 23 28 C 25 31, 29 32, 32 31" strokeWidth="1.8" />
@@ -127,8 +140,10 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
       onClick: onOpenCourses,
       illustration: (
         <svg viewBox="0 0 60 60" className="card-ref-illustration" fill="none" stroke="#111422" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Chip Body */}
           <rect x="18" y="16" width="24" height="24" rx="4" strokeWidth="2.2" />
           <rect x="23" y="21" width="14" height="14" rx="2" fill="#111422" stroke="none" />
+          {/* Python Circuit Traces */}
           <line x1="23" y1="12" x2="23" y2="16" strokeWidth="2" />
           <line x1="30" y1="12" x2="30" y2="16" strokeWidth="2" />
           <line x1="37" y1="12" x2="37" y2="16" strokeWidth="2" />
@@ -156,10 +171,12 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
       onClick: onOpenCourses,
       illustration: (
         <svg viewBox="0 0 60 60" className="card-ref-illustration" fill="none" stroke="#111422" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Certificate Scroll Outline */}
           <rect x="16" y="14" width="28" height="32" rx="2" strokeWidth="2.2" />
           <line x1="22" y1="21" x2="34" y2="21" strokeWidth="2" />
           <line x1="22" y1="26" x2="38" y2="26" strokeWidth="1.8" />
           <line x1="22" y1="31" x2="32" y2="31" strokeWidth="1.8" />
+          {/* Ribbon Seal Badge */}
           <circle cx="36" cy="38" r="4.5" fill="#111422" />
           <path d="M 34 42 L 32 47 L 36 45 L 40 47 L 38 42" fill="#111422" stroke="none" />
         </svg>
@@ -179,6 +196,7 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
       onClick: onOpenCourses,
       illustration: (
         <svg viewBox="0 0 60 60" className="card-ref-illustration" fill="none" stroke="#111422" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {/* Stacked Cards / Layers */}
           <path d="M 16 20 L 30 13 L 44 20 L 30 27 Z" strokeWidth="2.2" />
           <path d="M 16 27 L 30 34 L 44 27" strokeWidth="2.2" />
           <path d="M 16 34 L 30 41 L 44 34" strokeWidth="2.2" />
@@ -189,16 +207,28 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
 
   return (
     <section className="fanned-hero-section" aria-label="Hero Section">
+      {/* Top Typography & Taglines (Untouched) */}
+      <div className="hero-typography-container">
+        <h1 className="hero-fanned-title">
+          <span className="title-top-line">COMPUTER TRAINING</span>
+          <span className="title-pixel-line">CENTER</span>
+        </h1>
 
-      {/* 1. TOP META — like "BROOKLYN, NEW YORK" */}
-      <p className="hero-top-meta">BILASPUR, CHHATTISGARH</p>
+        <p className="hero-fanned-subtitle">
+          Designing unique careers that make practical computer learning feel a little better.
+        </p>
 
-      {/* 2. MAIN BOLD TITLE — like "SPENCER GABOR", big black, centered */}
-      <h1 className="hero-main-name">
-        SURAJ CS HUB
-      </h1>
+        {/* Quick Badges (Untouched) */}
+        <div className="hero-quick-badges">
+          <span className="quick-pill">
+            <span className="green-bullet"></span> 4 Students Per Batch
+          </span>
+          <span className="quick-pill">Govt. Recognized Certification</span>
+          <span className="quick-pill">Offline &amp; Online Access</span>
+        </div>
+      </div>
 
-      {/* 3. FANNED CARDS DECK — center of the page */}
+      {/* Centerpiece: Fanned-out Cards Deck with user's reference editorial card design */}
       <div className="fanned-deck-wrapper">
         <div className="fanned-deck-container">
           {fannedCards.map((card, idx) => {
@@ -222,21 +252,28 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
                 tabIndex={0}
                 aria-label={`View ${card.title} - ${card.headline}`}
               >
+                {/* Reference Card Interior Layout */}
                 <div className="ref-card-interior">
+                  {/* Top Row: Hand-drawn Illustration (Left) & Bold Date Block (Right) */}
                   <div className="ref-card-top-row">
                     <div className="ref-illustration-box">
                       {card.illustration}
                     </div>
+
                     <div className="ref-date-box">
                       <span className="ref-date-big">{card.dayNumber}</span>
                       <span className="ref-date-sub">{card.monthYear}</span>
                     </div>
                   </div>
 
+                  {/* Middle Content: Big Editorial Headline in Syne */}
                   <div className="ref-card-body">
-                    <h3 className="ref-card-headline">{card.headline}</h3>
+                    <h3 className="ref-card-headline">
+                      {card.headline}
+                    </h3>
                   </div>
 
+                  {/* Bottom Row: Byline on Left, Action Tag on Right */}
                   <div className="ref-card-footer">
                     <span className="ref-byline">{card.byline}</span>
                     <span className="ref-tag-pill">
@@ -250,18 +287,6 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
           })}
         </div>
       </div>
-
-      {/* 4. GHOST BIG TEXT — like "ILLUSTRATOR, DESIGNER & MURALIST" in light gray */}
-      <p className="hero-ghost-tagline">
-        COMPUTER TRAINING<br />CENTER
-      </p>
-
-      {/* 5. BOTTOM META — like "CLIENTS INCLUDE" + list */}
-      <div className="hero-bottom-meta">
-        <span className="hero-clients-label">COURSES INCLUDE</span>
-        <span className="hero-clients-list">ADCA · DCA · FULL-STACK WEB · PYTHON & AI · ANDROID LMS · STUDENT PORTAL</span>
-      </div>
-
     </section>
   );
 }
