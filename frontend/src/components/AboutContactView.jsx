@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Building2, 
   Phone, 
@@ -15,6 +16,11 @@ import './AboutContactView.css';
 export default function AboutContactView({ initialTab = 'about' }) {
   const [activeSubTab, setActiveSubTab] = useState(initialTab);
   const [inquirySent, setInquirySent] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setActiveSubTab(initialTab);
+  }, [initialTab]);
 
   const handleInquirySubmit = (e) => {
     e.preventDefault();
@@ -27,14 +33,20 @@ export default function AboutContactView({ initialTab = 'about' }) {
         <button
           type="button"
           className={`subtab-btn ${activeSubTab === 'about' ? 'active' : ''}`}
-          onClick={() => setActiveSubTab('about')}
+          onClick={() => {
+            setActiveSubTab('about');
+            navigate('/about');
+          }}
         >
           About Suraj CS Hub
         </button>
         <button
           type="button"
           className={`subtab-btn ${activeSubTab === 'contact' ? 'active' : ''}`}
-          onClick={() => setActiveSubTab('contact')}
+          onClick={() => {
+            setActiveSubTab('contact');
+            navigate('/contact');
+          }}
         >
           Contact & Center Location
         </button>
