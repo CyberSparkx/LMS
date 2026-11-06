@@ -1,239 +1,395 @@
 /* ==========================================================================
-   Courses View Styling
+   Courses View Styling — Minimalist Squarish 2-Color Cards (Brand Blue & Dark Slate)
    ========================================================================== */
 
 .courses-page-container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 30px 20px 80px 20px;
+  padding: 36px 24px 96px 24px;
 }
 
+/* Header Section */
 .courses-header-section {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 44px auto;
 }
 
 .courses-pretitle {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #0077ff;
   margin-bottom: 8px;
 }
 
 .courses-main-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
   font-weight: 800;
   color: #111422;
-  margin-bottom: 10px;
-  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .courses-subtitle {
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   color: #555e75;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
+/* Filter Tabs */
 .courses-filter-tabs {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 24px;
+  gap: 10px;
+  margin-top: 26px;
   flex-wrap: wrap;
 }
 
 .filter-tab {
   background: #ffffff;
-  border: 1px solid rgba(17, 20, 34, 0.08);
-  color: #515a72;
-  font-size: 0.84rem;
+  border: 1.5px solid rgba(17, 20, 34, 0.10);
+  color: #4b5563;
+  font-size: 0.88rem;
   font-weight: 600;
-  padding: 7px 16px;
+  padding: 8px 20px;
   border-radius: var(--radius-pill);
-  transition: all 0.2s;
+  transition: all 0.22s ease;
+  cursor: pointer;
 }
 
 .filter-tab:hover {
-  background: #f1f4f9;
-  color: #111422;
+  background: #f0f6ff;
+  border-color: #0077ff;
+  color: #0077ff;
 }
 
 .filter-tab.active {
-  background: #111422;
+  background: #0077ff;
   color: #ffffff;
-  border-color: #111422;
-  box-shadow: 0 4px 12px rgba(17, 20, 34, 0.15);
+  border-color: #0077ff;
+  box-shadow: 0 4px 14px rgba(0, 119, 255, 0.32);
 }
 
-/* Cards Grid */
+/* ==========================================================================
+   Courses Cards Grid (3 Columns on Desktop, Squarish Aspect Ratio)
+   ========================================================================== */
+
 .courses-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
-.course-card-item {
-  background: #ffffff;
+/* ==========================================================================
+   Squarish Minimal Card Tile (Matching Reference Architecture)
+   ========================================================================== */
+
+.course-squarish-card {
   border-radius: 22px;
-  border: 1px solid rgba(17, 20, 34, 0.08);
-  box-shadow: 0 8px 24px -6px rgba(17, 20, 34, 0.06);
-  padding: 24px;
+  padding: 26px 24px 20px 24px;
   display: flex;
   flex-direction: column;
-  text-align: left;
-  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  min-height: 300px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
 }
 
-.course-card-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px -8px rgba(17, 20, 34, 0.12);
+.course-squarish-card:hover {
+  transform: translateY(-5px);
 }
 
-.card-top-tags {
+/* Top Row: Clean Icon in Top Right */
+.card-top-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.card-top-icon {
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
+  justify-content: center;
 }
 
-.course-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: var(--radius-pill);
-  background: #f0f5ff;
-  color: #0066dc;
-}
-
-.seats-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #059669;
-  background: #ecfdf5;
-  padding: 3px 8px;
-  border-radius: var(--radius-pill);
-}
-
-.course-card-title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #111422;
-  line-height: 1.3;
-  margin-bottom: 10px;
-}
-
-.course-card-desc {
-  font-size: 0.85rem;
-  color: #5c657e;
-  line-height: 1.5;
+/* Content Block */
+.card-content-block {
   margin-bottom: 16px;
 }
 
-.course-meta-pills {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 18px;
+.card-main-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 3px;
 }
 
-.meta-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.74rem;
+.card-track-subtitle {
+  font-size: 0.78rem;
   font-weight: 600;
-  color: #4b536a;
-  background: #f4f6fa;
-  padding: 4px 10px;
-  border-radius: 8px;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 10px;
 }
 
-.course-highlights-box {
-  background: #fbfbfe;
-  border: 1px solid rgba(17, 20, 34, 0.05);
-  border-radius: 14px;
-  padding: 12px 14px;
+.card-short-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Bottom Zone: Pricing, Minimal Arrow Button & Geometric Sculpture
+   ========================================================================== */
+
+.card-bottom-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.card-bottom-left {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 22px;
+  gap: 12px;
+  position: relative;
+  z-index: 5;
+  max-width: 55%;
 }
 
-.highlight-point {
+.card-price-row {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 0.78rem;
-  color: #384157;
-  line-height: 1.35;
+  flex-direction: column;
+  line-height: 1.2;
 }
 
-.hl-check {
-  color: #059669;
-  flex-shrink: 0;
+.card-fee-highlight {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.card-deposit-note {
+  font-size: 0.75rem;
+  font-weight: 600;
   margin-top: 2px;
 }
 
-.course-card-footer {
-  display: flex;
+/* Minimalist Arrow CTA Button (Matching Reference Bottom-Left Arrow) */
+.card-arrow-cta-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid rgba(17, 20, 34, 0.07);
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
 }
 
-.pricing-info {
-  display: flex;
-  flex-direction: column;
+.card-arrow-cta-btn svg {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.price-monthly {
-  font-size: 0.95rem;
+.course-squarish-card:hover .card-arrow-cta-btn svg {
+  transform: translateX(4px);
+}
+
+/* Bottom Right Geometric Sculpture */
+.card-art-box {
+  position: absolute;
+  right: -8px;
+  bottom: -6px;
+  width: 130px;
+  height: 95px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.art-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   Card 1: Featured Brand Blue Solid Card (Dashboard Position)
+   ========================================================================== */
+
+.course-squarish-card.is-featured-blue {
+  background: linear-gradient(135deg, #005cd2 0%, #0077ff 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 
+    0 12px 28px -4px rgba(0, 119, 255, 0.25),
+    0 22px 46px -12px rgba(0, 119, 255, 0.45);
+}
+
+.course-squarish-card.is-featured-blue:hover {
+  box-shadow: 
+    0 16px 36px -4px rgba(0, 119, 255, 0.32),
+    0 30px 60px -12px rgba(0, 119, 255, 0.55);
+}
+
+.course-squarish-card.is-featured-blue .card-top-icon {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.course-squarish-card.is-featured-blue .card-main-title {
+  color: #ffffff;
+}
+
+.course-squarish-card.is-featured-blue .card-track-subtitle {
+  color: #bfdbfe;
+}
+
+.course-squarish-card.is-featured-blue .card-short-desc {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.course-squarish-card.is-featured-blue .card-fee-highlight {
+  color: #ffffff;
+}
+
+.course-squarish-card.is-featured-blue .card-deposit-note {
+  color: #bfdbfe;
+}
+
+.course-squarish-card.is-featured-blue .card-arrow-cta-btn {
+  background: #ffffff;
+  color: #0066dc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.course-squarish-card.is-featured-blue .card-arrow-cta-btn:hover {
+  background: #f0f6ff;
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Cards 2 to 6: Clean White Cards in Unified 2-Color System
+   ========================================================================== */
+
+.course-squarish-card.is-clean-white {
+  background: #ffffff;
+  border: 1px solid rgba(17, 20, 34, 0.08);
+  color: #111422;
+  box-shadow: 
+    0 8px 24px -4px rgba(17, 24, 39, 0.05),
+    0 18px 36px -10px rgba(0, 119, 255, 0.12);
+}
+
+.course-squarish-card.is-clean-white:hover {
+  box-shadow: 
+    0 14px 30px -4px rgba(17, 24, 39, 0.08),
+    0 26px 52px -10px rgba(0, 119, 255, 0.20);
+}
+
+.course-squarish-card.is-clean-white .card-top-icon {
+  color: #0077ff;
+}
+
+.course-squarish-card.is-clean-white .card-main-title {
   color: #111422;
 }
 
-.price-monthly strong {
-  font-size: 1.25rem;
-  font-weight: 800;
+.course-squarish-card.is-clean-white .card-track-subtitle {
+  color: #0077ff;
 }
 
-.price-total {
-  font-size: 0.72rem;
-  color: #828ba3;
+.course-squarish-card.is-clean-white .card-short-desc {
+  color: #555e75;
 }
 
-.btn-book-course-seat {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.course-squarish-card.is-clean-white .card-fee-highlight {
+  color: #111422;
+}
+
+.course-squarish-card.is-clean-white .card-deposit-note {
+  color: #0077ff;
+}
+
+.course-squarish-card.is-clean-white .card-arrow-cta-btn {
   background: #111422;
   color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 9px 18px;
-  border-radius: var(--radius-pill);
-  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(17, 20, 34, 0.18);
 }
 
-.btn-book-course-seat:hover {
+.course-squarish-card.is-clean-white .card-arrow-cta-btn:hover {
   background: #0077ff;
-  transform: translateY(-1px);
+  transform: scale(1.08);
 }
 
-@media (max-width: 640px) {
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .courses-page-container {
+    padding: 30px 16px 72px 16px;
+  }
+
+  .courses-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .courses-page-container {
+    padding: 24px 14px 60px 14px;
+  }
+
+  .courses-header-section {
+    margin-bottom: 28px;
+  }
+
+  .courses-filter-tabs {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .filter-tab {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+  }
+
   .courses-cards-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .course-squarish-card {
+    padding: 22px 20px 18px 20px;
+    min-height: 280px;
+  }
+
+  .card-bottom-left {
+    max-width: 62%;
+  }
+
+  .card-art-box {
+    width: 115px;
+    height: 85px;
   }
 }
