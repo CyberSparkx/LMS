@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import { 
-  X, 
-  ChevronLeft, 
-  ChevronRight, 
-  Maximize2, 
   Users, 
   Award, 
-  Terminal, 
-  Sparkles,
-  CheckCircle2,
-  BookOpen
+  CheckCircle2
 } from 'lucide-react';
 import './ImageGallerySection.css';
 
 export default function ImageGallerySection() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [activeLightboxIndex, setActiveLightboxIndex] = useState(null);
 
   const filterTabs = [
     { id: 'all', label: 'All Photos' },
@@ -35,9 +27,7 @@ export default function ImageGallerySection() {
       category: 'lab',
       src: '/assets/gallery-center.jpg',
       title: 'High-Speed Computer Center',
-      tag: 'Campus Infrastructure',
-      aspectClass: 'mosaic-square',
-      description: 'Fully air-conditioned computer center equipped with high-speed workstations, ergonomic seating, and gigabit internet.'
+      aspectClass: 'mosaic-square'
     },
     {
       id: 'c1-bottom',
@@ -46,9 +36,7 @@ export default function ImageGallerySection() {
       category: 'practice',
       src: '/assets/student.jpg',
       title: 'Dedicated Student Workstation',
-      tag: 'Individual Terminal',
-      aspectClass: 'mosaic-square',
-      description: 'One student per computer policy. No shared screens, no rotation, and uninterrupted 90-minute daily practical slots.'
+      aspectClass: 'mosaic-square'
     },
 
     // --- Column 2 (Center-Left): Tall Hero Portrait (Michelangelo position) ---
@@ -59,10 +47,8 @@ export default function ImageGallerySection() {
       category: 'mentorship',
       src: '/assets/gallery-teaching.jpg',
       title: 'Faculty Live Instruction',
-      tag: 'Live Coding Demo',
       aspectClass: 'mosaic-tall-hero',
-      isHero: true,
-      description: 'Daily hands-on lab sessions with Prof. Suraj. Every line of code, algorithmic logic, and web project is built together live.'
+      isHero: true
     },
 
     // --- Column 3 (Center): Vertical Photo + Badge + Circular Disc ---
@@ -73,9 +59,7 @@ export default function ImageGallerySection() {
       category: 'mentorship',
       src: '/assets/gallery-mentor.jpg',
       title: 'Side-by-Side Debugging',
-      tag: 'Doubt Clearance',
-      aspectClass: 'mosaic-vertical',
-      description: 'Zero unresolved syntax errors. Instructors review code directly at student monitors, providing immediate feedback.'
+      aspectClass: 'mosaic-vertical'
     },
     {
       id: 'c3-badge',
@@ -94,10 +78,8 @@ export default function ImageGallerySection() {
       category: 'mentorship',
       src: '/assets/mentor.jpg',
       title: 'Prof. Suraj — Lead Mentor',
-      tag: 'Faculty Lead',
       aspectClass: 'mosaic-circle-disc',
-      isCircle: true,
-      description: 'Master mentor with over a decade of computer education experience mentoring students in practical CS fundamentals.'
+      isCircle: true
     },
 
     // --- Column 4 (Right): Wide Photo + Vertical Photo + Emblem ---
@@ -108,9 +90,7 @@ export default function ImageGallerySection() {
       category: 'students',
       src: '/assets/gallery-students.jpg',
       title: 'Micro-Batch Collaboration',
-      tag: '4 Students / Slot',
-      aspectClass: 'mosaic-wide',
-      description: 'Strict 4-student cap per batch ensures maximum personal attention, peer collaboration, and a quiet learning atmosphere.'
+      aspectClass: 'mosaic-wide'
     },
     {
       id: 'c4-bottom',
@@ -119,9 +99,7 @@ export default function ImageGallerySection() {
       category: 'practice',
       src: '/assets/gallery-teaching.jpg',
       title: 'Full-Stack & Python Labs',
-      tag: 'Applied Curriculum',
-      aspectClass: 'mosaic-vertical-alt',
-      description: 'Industry-standard training covering MERN Full-Stack, Python Programming, ADCA Diploma, and Govt. Certifications.'
+      aspectClass: 'mosaic-vertical-alt'
     },
     {
       id: 'c4-badge',
@@ -135,24 +113,6 @@ export default function ImageGallerySection() {
     }
   ];
 
-  // Photos only for the Lightbox modal
-  const photoItems = collageItems.filter((item) => item.type === 'photo');
-
-  const handleOpenLightbox = (photoItem) => {
-    const idx = photoItems.findIndex((p) => p.id === photoItem.id);
-    if (idx !== -1) {
-      setActiveLightboxIndex(idx);
-    }
-  };
-
-  const handleNextPhoto = () => {
-    setActiveLightboxIndex((prev) => (prev + 1) % photoItems.length);
-  };
-
-  const handlePrevPhoto = () => {
-    setActiveLightboxIndex((prev) => (prev - 1 + photoItems.length) % photoItems.length);
-  };
-
   const isItemActive = (item) => {
     if (activeCategory === 'all') return true;
     return item.category === activeCategory;
@@ -162,16 +122,16 @@ export default function ImageGallerySection() {
     <section className="mosaic-gallery-section" id="gallery" aria-label="Campus & Lab Gallery">
       <div className="mosaic-gallery-wrapper">
         
-        {/* Section Header */}
+        {/* Section Header with Black Kicker and Black Subtext */}
         <div className="mosaic-gallery-header">
-          <span className="mosaic-kicker">CAMPUS & LAB LIFE &bull; SURAJ CS HUB</span>
+          <span className="mosaic-kicker">CAMPUS &amp; LAB LIFE &bull; SURAJ CS HUB</span>
           <h2 className="mosaic-headline">Experience Our Computer Lab</h2>
           <p className="mosaic-subheadline">
             Explore our daily 4-student practical lab sessions, dedicated terminals, and side-by-side instruction with Prof. Suraj.
           </p>
         </div>
 
-        {/* Top Category Filter Tabs (Matching Reference: Red Active Pill + Outline Buttons) */}
+        {/* Top Category Filter Tabs */}
         <div className="mosaic-filter-bar" role="tablist" aria-label="Filter photo gallery">
           {filterTabs.map((tab) => {
             const isActive = activeCategory === tab.id;
@@ -193,12 +153,10 @@ export default function ImageGallerySection() {
         {/* Centerpiece: Scattered Masonry Art Collage Wall */}
         <div className="mosaic-art-canvas">
           
-          {/* Decorative Red Dot 1 (Large Bauhaus accent dot on left) */}
-          <div className="red-accent-dot dot-large" aria-hidden="true" />
-
-          {/* Decorative Red Dot 2 & 3 (Medium & small accent dots in center) */}
-          <div className="red-accent-dot dot-medium" aria-hidden="true" />
-          <div className="red-accent-dot dot-small" aria-hidden="true" />
+          {/* Decorative Blue Accent Dots */}
+          <div className="mosaic-accent-dot dot-large" aria-hidden="true" />
+          <div className="mosaic-accent-dot dot-medium" aria-hidden="true" />
+          <div className="mosaic-accent-dot dot-small" aria-hidden="true" />
 
           {/* 4 Asymmetric Columns */}
           <div className="mosaic-wall-grid">
@@ -211,17 +169,8 @@ export default function ImageGallerySection() {
                   <div
                     key={item.id}
                     className={`mosaic-card-frame ${item.aspectClass} ${active ? 'is-spotlight' : 'is-dimmed'}`}
-                    onClick={() => handleOpenLightbox(item)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View photo: ${item.title}`}
                   >
                     <img src={item.src} alt={item.title} className="mosaic-card-img" loading="lazy" />
-                    <div className="mosaic-card-overlay">
-                      <span className="card-tag">{item.tag}</span>
-                      <strong className="card-title">{item.title}</strong>
-                      <span className="card-expand-hint"><Maximize2 size={13} /> Enlarge</span>
-                    </div>
                   </div>
                 );
               })}
@@ -235,17 +184,8 @@ export default function ImageGallerySection() {
                   <div
                     key={item.id}
                     className={`mosaic-card-frame ${item.aspectClass} ${active ? 'is-spotlight' : 'is-dimmed'}`}
-                    onClick={() => handleOpenLightbox(item)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View photo: ${item.title}`}
                   >
                     <img src={item.src} alt={item.title} className="mosaic-card-img" loading="lazy" />
-                    <div className="mosaic-card-overlay">
-                      <span className="card-tag">{item.tag}</span>
-                      <strong className="card-title">{item.title}</strong>
-                      <span className="card-expand-hint"><Maximize2 size={13} /> Enlarge</span>
-                    </div>
                   </div>
                 );
               })}
@@ -260,17 +200,8 @@ export default function ImageGallerySection() {
                   <div
                     key={item.id}
                     className={`mosaic-card-frame ${item.aspectClass} ${active ? 'is-spotlight' : 'is-dimmed'}`}
-                    onClick={() => handleOpenLightbox(item)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View photo: ${item.title}`}
                   >
                     <img src={item.src} alt={item.title} className="mosaic-card-img" loading="lazy" />
-                    <div className="mosaic-card-overlay">
-                      <span className="card-tag">{item.tag}</span>
-                      <strong className="card-title">{item.title}</strong>
-                      <span className="card-expand-hint"><Maximize2 size={13} /> Enlarge</span>
-                    </div>
                   </div>
                 );
               })}
@@ -292,23 +223,15 @@ export default function ImageGallerySection() {
                 );
               })}
 
-              {/* Item 6: Circular Dolphin Disc Frame */}
+              {/* Item 6: Circular Disc Frame */}
               {collageItems.filter((i) => i.id === 'c3-circle').map((item) => {
                 const active = isItemActive(item);
                 return (
                   <div
                     key={item.id}
                     className={`mosaic-card-frame ${item.aspectClass} ${active ? 'is-spotlight' : 'is-dimmed'}`}
-                    onClick={() => handleOpenLightbox(item)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View mentor photo: ${item.title}`}
                   >
                     <img src={item.src} alt={item.title} className="mosaic-card-img" loading="lazy" />
-                    <div className="mosaic-card-overlay circle-overlay">
-                      <span className="card-tag">{item.tag}</span>
-                      <strong className="card-title">{item.title}</strong>
-                    </div>
                   </div>
                 );
               })}
@@ -323,17 +246,8 @@ export default function ImageGallerySection() {
                   <div
                     key={item.id}
                     className={`mosaic-card-frame ${item.aspectClass} ${active ? 'is-spotlight' : 'is-dimmed'}`}
-                    onClick={() => handleOpenLightbox(item)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View photo: ${item.title}`}
                   >
                     <img src={item.src} alt={item.title} className="mosaic-card-img" loading="lazy" />
-                    <div className="mosaic-card-overlay">
-                      <span className="card-tag">{item.tag}</span>
-                      <strong className="card-title">{item.title}</strong>
-                      <span className="card-expand-hint"><Maximize2 size={13} /> Enlarge</span>
-                    </div>
                   </div>
                 );
               })}
@@ -346,17 +260,8 @@ export default function ImageGallerySection() {
                     <div
                       key={item.id}
                       className={`mosaic-card-frame ${item.aspectClass} ${active ? 'is-spotlight' : 'is-dimmed'}`}
-                      onClick={() => handleOpenLightbox(item)}
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`View photo: ${item.title}`}
                     >
                       <img src={item.src} alt={item.title} className="mosaic-card-img" loading="lazy" />
-                      <div className="mosaic-card-overlay">
-                        <span className="card-tag">{item.tag}</span>
-                        <strong className="card-title">{item.title}</strong>
-                        <span className="card-expand-hint"><Maximize2 size={13} /> Enlarge</span>
-                      </div>
                     </div>
                   );
                 })}
@@ -399,59 +304,6 @@ export default function ImageGallerySection() {
         </div>
 
       </div>
-
-      {/* Interactive Lightbox Zoom Modal */}
-      {activeLightboxIndex !== null && (
-        <div 
-          className="gallery-lightbox-backdrop" 
-          onClick={() => setActiveLightboxIndex(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className="lightbox-modal-box" onClick={(e) => e.stopPropagation()}>
-            <button 
-              type="button" 
-              className="lightbox-close-btn"
-              onClick={() => setActiveLightboxIndex(null)}
-              aria-label="Close photo preview"
-            >
-              <X size={20} />
-            </button>
-
-            <button 
-              type="button" 
-              className="lightbox-nav-btn prev-btn"
-              onClick={handlePrevPhoto}
-              aria-label="Previous photo"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            <button 
-              type="button" 
-              className="lightbox-nav-btn next-btn"
-              onClick={handleNextPhoto}
-              aria-label="Next photo"
-            >
-              <ChevronRight size={24} />
-            </button>
-
-            <div className="lightbox-image-wrap">
-              <img 
-                src={photoItems[activeLightboxIndex].src} 
-                alt={photoItems[activeLightboxIndex].title} 
-                className="lightbox-full-img"
-              />
-            </div>
-
-            <div className="lightbox-caption">
-              <span className="caption-tag">{photoItems[activeLightboxIndex].tag}</span>
-              <h4 className="caption-title">{photoItems[activeLightboxIndex].title}</h4>
-              <p className="caption-desc">{photoItems[activeLightboxIndex].description}</p>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
