@@ -344,6 +344,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 /* "Start Learning" text button */
@@ -351,12 +352,14 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 7px 14px;
   border-radius: var(--radius-pill);
   transition: all 0.22s ease;
   flex-shrink: 0;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 /* Featured (blue bg) card: invert button colours */
@@ -380,6 +383,18 @@
 .is-clean-white .card-learn-btn:hover {
   background: #dbeafe;
   border-color: #0077ff;
+}
+
+/* Ensure arrow button stays a perfect circle inside the row */
+.card-action-row .card-arrow-cta-btn {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  padding: 0;
+  align-self: center;
 }
 
 /* ==========================================================================
