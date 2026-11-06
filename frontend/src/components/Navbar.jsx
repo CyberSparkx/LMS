@@ -1,5 +1,19 @@
-import React, { useState } from 'react';
-import { Terminal, Download, User, ArrowRight, Menu, X, BookOpen, Clock, Phone, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { 
+  Terminal, 
+  Download, 
+  User, 
+  ArrowRight, 
+  Menu, 
+  X, 
+  BookOpen, 
+  Clock, 
+  Phone, 
+  Sparkles,
+  Star,
+  Image,
+  Info 
+} from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar({ 
@@ -13,14 +27,38 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'courses', label: 'Courses' },
-    { id: 'batches', label: 'Batches' },
-    { id: 'gallery', label: 'Gallery' },
-    { id: 'reviews', label: 'Reviews' },
-    { id: 'download-app', label: 'Download App' },
-    { id: 'about', label: 'About' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'courses', label: 'Courses', icon: BookOpen },
+    { id: 'batches', label: 'Batches', icon: Clock },
+    { id: 'gallery', label: 'Gallery', icon: Image },
+    { id: 'reviews', label: 'Reviews', icon: Star },
+    { id: 'download-app', label: 'Download App', icon: Download },
+    { id: 'about', label: 'About', icon: Info },
+    { id: 'contact', label: 'Contact', icon: Phone },
   ];
+
+  // Auto-close mobile menu on Escape key or when resizing back to desktop
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth > 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [mobileMenuOpen]);
 
   const handleNavClick = (tabId) => {
     if (tabId === 'download-app') {
@@ -31,14 +69,19 @@ export default function Navbar({
     setMobileMenuOpen(false);
   };
 
+  const handleHomeClick = () => {
+    onSelectTab('home');
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav className="framed-navbar-wrapper" aria-label="Main Navigation">
       <div className="floating-pill-menu">
-        {/* Left Icon Badge (like the doodle avatar in reference) */}
+        {/* Left Mascot Badge */}
         <button 
           type="button"
           className="nav-mascot-badge" 
-          onClick={() => onSelectTab('home')}
+          onClick={handleHomeClick}
           title="Suraj CS Hub - Home"
           aria-label="Suraj CS Hub Home"
         >
@@ -47,7 +90,7 @@ export default function Navbar({
           </div>
         </button>
 
-        {/* Center Navigation Links (Exact reference pill styling) */}
+        {/* Center Navigation Links (Desktop only, >1024px) */}
         <div className="nav-links-center">
           {navItems.map((item) => (
             <button
@@ -76,7 +119,7 @@ export default function Navbar({
             </span>
           </button>
 
-          {/* Primary Action Button (Blue pill like 'Work with Me' in reference) */}
+          {/* Primary Action Button (Blue pill) */}
           <button 
             type="button" 
             className="nav-cta-blue-pill"
@@ -85,53 +128,89 @@ export default function Navbar({
             <span>Book Seat</span>
           </button>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle Button (<= 1024px) */}
           <button 
             type="button" 
             className="nav-mobile-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label={mobileMenuOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Backdrop Overlay */}
       {mobileMenuOpen && (
-        <div className="nav-mobile-dropdown">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              className="nav-mobile-item"
-              onClick={() => handleNavClick(item.id)}
+        <div 
+          className="nav-mobile-backdrop" 
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile Dropdown Menu Card */}
+      {mobileMenuOpen && (
+        <div className="nav-mobile-dropdown" role="menu">
+          <div className="nav-mobile-items-list">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`nav-mobile-item ${isActive ? 'is-active' : ''}`}
+                  onClick={() => handleNavClick(item.id)}
+                  role="menuitem"
+                >
+                  <div className="nav-mobile-item-left">
+                    <span className="nav-mobile-icon-box">
+                      <Icon size={17} />
+                    </span>
+                    <span className="nav-mobile-item-label">{item.label}</span>
+                  </div>
+                  <ArrowRight size={14} className="nav-mobile-chevron" />
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mobile-action-divider" />
+
+          <div className="nav-mobile-bottom-actions">
+            <button 
+              type="button" 
+              className="nav-mobile-item highlight"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenLogin();
+              }}
+              role="menuitem"
             >
-              {item.label}
+              <div className="nav-mobile-item-left">
+                <span className="nav-mobile-icon-box highlight-icon">
+                  <User size={17} />
+                </span>
+                <span className="nav-mobile-item-label">
+                  {currentUser ? `${currentUser.name.split(' ')[0]} (My Account)` : 'Student Login / Portal'}
+                </span>
+              </div>
+              <ArrowRight size={14} className="nav-mobile-chevron" />
             </button>
-          ))}
-          <div className="mobile-action-divider"></div>
-          <button 
-            type="button" 
-            className="nav-mobile-item highlight"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenLogin();
-            }}
-          >
-            <User size={16} />
-            <span>{currentUser ? 'My Profile & LMS' : 'Student Login'}</span>
-          </button>
-          <button 
-            type="button" 
-            className="nav-mobile-cta"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenBookSeat();
-            }}
-          >
-            Book Seat
-          </button>
+
+            <button 
+              type="button" 
+              className="nav-mobile-cta"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenBookSeat();
+              }}
+            >
+              Book Seat Now
+            </button>
+          </div>
         </div>
       )}
     </nav>

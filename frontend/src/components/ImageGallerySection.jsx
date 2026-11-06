@@ -34,7 +34,7 @@ export default function ImageGallerySection() {
     {
       id: 3,
       src: '/assets/gallery-mentor.jpg',
-      title: '1-on-1 Personalized Mentorship',
+      title: '1-on-1 Lab Guidance',
       tag: 'Doubt Clearance',
       badge: 'Code Reviews',
       cardTheme: 'theme-emerald',
@@ -46,7 +46,7 @@ export default function ImageGallerySection() {
     {
       id: 4,
       src: '/assets/gallery-students.jpg',
-      title: '4-Seat Micro Batch Synergy',
+      title: '4-Seat Dedicated Batches',
       tag: 'Focused Learning',
       badge: 'Micro-Batch (4 Seats)',
       cardTheme: 'theme-peach',

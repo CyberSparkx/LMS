@@ -10,11 +10,11 @@ export default function AboutSection({ onOpenCourses, onOpenBatches, onOpenBookS
         {/* Header matching reference image */}
         <div className="bolt-header-group">
           <h2 className="bolt-main-headline">
-            It’s not magic.<br />
-            It’s Suraj CS Hub.
+            Strict four-seat batches.<br />
+            One PC per student.
           </h2>
           <p className="bolt-subheadline">
-            Take a look inside our computer center, daily micro-batch lab sessions, and live hands-on teaching with Prof. Suraj.
+            Inside our air-conditioned computer center: daily 90-minute practical lab slots with side-by-side instruction from Prof. Suraj.
           </p>
         </div>
 
@@ -71,8 +71,8 @@ export default function AboutSection({ onOpenCourses, onOpenBatches, onOpenBookS
 
             <div className="card-text-content">
               <h3 className="card-bold-title">
-                So long,<br />
-                unresolved doubts.
+                Direct side-by-side<br />
+                debugging support.
               </h3>
               <p className="card-description">
                 Direct side-by-side debugging where instructors inspect your syntax, review Git commits, and explain concepts until crystal clear.

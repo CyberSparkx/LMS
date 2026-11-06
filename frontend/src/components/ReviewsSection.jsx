@@ -101,12 +101,12 @@ export default function ReviewsSection() {
           <div className="reviews-rating-bar">
             <span className="rating-score">4.9/5</span>
             <div className="trustpilot-badge">
-              <span className="trustpilot-star-box" aria-hidden="true">
+              <span className="trustpilot-star-box" aria-hidden="true" style={{ background: '#ea4335' }}>
                 <Star size={14} fill="#ffffff" color="#ffffff" strokeWidth={0} />
               </span>
-              <span>Trustpilot</span>
+              <span>Google Reviews</span>
             </div>
-            <span className="rating-based-on">Based on 520+ reviews</span>
+            <span className="rating-based-on">Based on 180+ student reviews</span>
           </div>
         </div>
 

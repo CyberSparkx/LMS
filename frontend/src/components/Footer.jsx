@@ -40,7 +40,7 @@ export default function Footer({
         {/* Top Text - Exact Match to Reference Design */}
         <div className="join-typography-wrap">
           <h2 className="join-main-title">Join Us!</h2>
-          <p className="join-sub-title">Together we can make everything better.</p>
+          <p className="join-sub-title">Reserve your workstation in our next 4-student batch.</p>
 
           {/* Action CTAs */}
           <div className="join-action-row">

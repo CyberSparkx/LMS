@@ -215,7 +215,7 @@ export default function Hero({ onOpenCourses, onOpenBatches, onOpenDownloadApp, 
         </h1>
 
         <p className="hero-fanned-subtitle">
-          Designing unique careers that make practical computer learning feel a little better.
+          Dedicated computer terminals. Strictly 4 students per batch. Daily practical mentorship with Prof. Suraj.
         </p>
 
         {/* Quick Badges (Untouched) */}
