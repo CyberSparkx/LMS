@@ -217,21 +217,25 @@ export default function App() {
     </>
   );
 
+  const isLearnPage = location.pathname.includes('/learn');
+
   return (
     <div className="app-viewport-wrapper">
       <div className="stage-framed-container">
-        {/* Floating Pill Navbar */}
-        <Navbar
-          activeTab={getActiveTab()}
-          onSelectTab={handleSelectTab}
-          onOpenLogin={() => setIsLoginModalOpen(true)}
-          onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
-          onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
-          currentUser={currentUser}
-        />
+        {/* Floating Pill Navbar — hidden on learning pages */}
+        {!isLearnPage && (
+          <Navbar
+            activeTab={getActiveTab()}
+            onSelectTab={handleSelectTab}
+            onOpenLogin={() => setIsLoginModalOpen(true)}
+            onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
+            onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
+            currentUser={currentUser}
+          />
+        )}
 
         {/* View Router based on URL Routes */}
-        <main className="main-content-area">
+        <main className={`main-content-area${isLearnPage ? ' no-nav-padding' : ''}`}>
           <Routes>
             {/* Main Pages */}
             <Route path="/" element={HomePage} />
@@ -264,13 +268,15 @@ export default function App() {
           </Routes>
         </main>
 
-        {/* Comprehensive Center Footer */}
-        <Footer
-          onSelectTab={handleSelectTab}
-          onOpenLogin={() => setIsLoginModalOpen(true)}
-          onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
-          onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
-        />
+        {/* Comprehensive Center Footer — hidden on learning pages */}
+        {!isLearnPage && (
+          <Footer
+            onSelectTab={handleSelectTab}
+            onOpenLogin={() => setIsLoginModalOpen(true)}
+            onOpenBookSeat={() => setIsBookSeatModalOpen(true)}
+            onOpenDownloadApp={() => setIsDownloadAppModalOpen(true)}
+          />
+        )}
       </div>
 
       {/* Interactive Modals */}
