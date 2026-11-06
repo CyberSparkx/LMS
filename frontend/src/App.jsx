@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
@@ -21,6 +23,51 @@ export default function App() {
   const [isBookSeatModalOpen, setIsBookSeatModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
+  const lenisRef = useRef(null);
+
+  // Initialize Lenis Smooth Scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    lenisRef.current = lenis;
+    window.__lenis = lenis;
+
+    let rafId;
+    function raf(time) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+      lenisRef.current = null;
+      delete window.__lenis;
+    };
+  }, []);
+
+  // Pause Lenis background scrolling when any modal is open
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+
+    if (isLoginModalOpen || isDownloadAppModalOpen || isBookSeatModalOpen) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [isLoginModalOpen, isDownloadAppModalOpen, isBookSeatModalOpen]);
+
   const handleLogin = (userData) => {
     setCurrentUser(userData);
   };
@@ -30,41 +77,33 @@ export default function App() {
   };
 
   const handleSelectTab = (tabId) => {
-    if (tabId === 'about') {
+    const lenis = lenisRef.current;
+    const targetMap = {
+      about: '#about',
+      gallery: '#gallery',
+      reviews: '#reviews',
+      contact: '#contact-us',
+    };
+
+    if (targetMap[tabId]) {
       setActiveTab('home');
       setTimeout(() => {
-        const el = document.getElementById('about');
+        const el = document.querySelector(targetMap[tabId]);
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
+          if (lenis) {
+            lenis.scrollTo(el, { offset: -60, duration: 1.2 });
+          } else {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
         }
-      }, 60);
-    } else if (tabId === 'gallery') {
-      setActiveTab('home');
-      setTimeout(() => {
-        const el = document.getElementById('gallery');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 60);
-    } else if (tabId === 'reviews') {
-      setActiveTab('home');
-      setTimeout(() => {
-        const el = document.getElementById('reviews');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 60);
-    } else if (tabId === 'contact') {
-      setActiveTab('home');
-      setTimeout(() => {
-        const el = document.getElementById('contact-us');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 60);
+      }, 70);
     } else {
       setActiveTab(tabId);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 0.8 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
