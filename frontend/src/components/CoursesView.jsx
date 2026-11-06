@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   LayoutGrid, 
   Database, 
@@ -6,7 +7,8 @@ import {
   Cpu, 
   Receipt, 
   Megaphone, 
-  ArrowRight 
+  ArrowRight,
+  BookOpen
 } from 'lucide-react';
 import './CoursesView.css';
 
@@ -94,6 +96,7 @@ function Art6() {
 
 export default function CoursesView({ onBookSeat }) {
   const [filter, setFilter] = useState('all');
+  const navigate = useNavigate();
 
   const courses = [
     {
@@ -258,15 +261,26 @@ export default function CoursesView({ onBookSeat }) {
                     <span className="card-deposit-note">{course.bookingDeposit}</span>
                   </div>
 
-                  <button 
-                    type="button" 
-                    className="card-arrow-cta-btn"
-                    onClick={onBookSeat}
-                    aria-label={`Book seat for ${course.title} - ${course.bookingDeposit}`}
-                    title="Book Seat"
-                  >
-                    <ArrowRight size={18} strokeWidth={2.4} />
-                  </button>
+                  <div className="card-action-row">
+                    <button 
+                      type="button" 
+                      className="card-learn-btn"
+                      onClick={() => navigate(`/courses/${course.id}/learn`)}
+                      aria-label={`Start learning ${course.title}`}
+                    >
+                      <BookOpen size={14} />
+                      <span>Start Learning</span>
+                    </button>
+                    <button 
+                      type="button" 
+                      className="card-arrow-cta-btn"
+                      onClick={onBookSeat}
+                      aria-label={`Book seat for ${course.title} - ${course.bookingDeposit}`}
+                      title="Book Seat"
+                    >
+                      <ArrowRight size={18} strokeWidth={2.4} />
+                    </button>
+                  </div>
                 </div>
 
                 {/* Right: Abstract Geometric Sculpture (Matching Reference) */}

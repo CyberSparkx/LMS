@@ -338,6 +338,50 @@
   transform: scale(1.08);
 }
 
+/* Action row: learn + book buttons side by side */
+.card-action-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* "Start Learning" text button */
+.card-learn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  transition: all 0.22s ease;
+  flex-shrink: 0;
+}
+
+/* Featured (blue bg) card: invert button colours */
+.is-featured-blue .card-learn-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+
+.is-featured-blue .card-learn-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+/* White card variant */
+.is-clean-white .card-learn-btn {
+  background: #eff6ff;
+  color: #0077ff;
+  border: 1.5px solid rgba(0, 119, 255, 0.2);
+}
+
+.is-clean-white .card-learn-btn:hover {
+  background: #dbeafe;
+  border-color: #0077ff;
+}
+
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */

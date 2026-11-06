@@ -10,6 +10,7 @@ import ReviewsSection from './components/ReviewsSection';
 import ContactSection from './components/ContactSection';
 import CoursesView from './components/CoursesView';
 import BatchesView from './components/BatchesView';
+import CourseLearnView from './components/CourseLearnView';
 import AboutContactView from './components/AboutContactView';
 import NotFoundView from './components/NotFoundView';
 import LoginModal from './components/LoginModal';
@@ -254,6 +255,9 @@ export default function App() {
             {/* Direct Section URL Aliases */}
             <Route path="/gallery" element={HomePage} />
             <Route path="/reviews" element={HomePage} />
+
+            {/* Course Learning Page */}
+            <Route path="/courses/:courseId/learn" element={<CourseLearnView />} />
 
             {/* 404 Catch-All Route */}
             <Route path="*" element={<NotFoundView onGoHome={() => handleSelectTab('home')} />} />
